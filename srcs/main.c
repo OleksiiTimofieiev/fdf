@@ -10,7 +10,7 @@ int     main(int argc, char ** argv)
     char * test = NULL;
     if (argc == 2)
     {
-        test = get_contents(argv[1]);
+        test = getContents(argv[1]);
             printf("%s\n", test);
     }
 

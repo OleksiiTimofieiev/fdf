@@ -6,13 +6,15 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/29 18:53:26 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:54:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-char	*get_contents(char *filename)
+// int		newLineQuantity
+
+char	*getContents(char *filename)
 {
 	int		fd;
 	char	*data_from_file;
