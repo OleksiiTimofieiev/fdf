@@ -1,1 +1,60 @@
 - wire frame rendering 3D
+- draw a map in relief
+- canonical projection of Mars
+- 10 as altitude;
+- altitude maps
+- display a live;
+- fdf is a set of liness;
+- draw a line algorithm;
+- Brozenheim algorithm to draw a line;
+- rotations;
+- fill the map with colors;
+- color changes;
+- projections: isometric, parallel, conical
+
+
+
+
+
+
+
+
+
+
+
+
+
+Man MLX:
+- http://files.achedeuzot.me/42/mlx/man/
+
+Man for the project:
+- https://forum.intra.42.fr/topics/19254/messages
+- mlx man2: what mlx is about, inlude for the program: 
+#include <mlx.h>
+void *mlx_init(); -> initialize a window;
+mlx_new_window - clear - destroy, 
+mlx_pixel_put,
+mlx_new_image,
+mlx_loop.
+-lmlx -framework OpenFL -framework AppKit
+- mlx_key/mouse/expose/loop_hook
+
+sample: 
+
+int deal_key(int key, void *param)
+{
+    ft_putchar('x')
+}
+
+mlx_key_hook(win_ptr, deal_key, (void*)zero)
+
+
+MLX features:
+- create window;
+- draw pixels;
+
+?:
+- set max window;
+- get max window coords;
+- putpixel or put image;
+- writing the char * to the screen;
