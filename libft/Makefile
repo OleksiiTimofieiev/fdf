@@ -109,6 +109,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+	@echo  "$(YELLOW) : OK$(RES)"
 
 %.o: %.c $(HEADER)
 	@gcc -c $< -o $@ $(FLAGS) -I$(HEADER)

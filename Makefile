@@ -23,6 +23,7 @@ WHITE       = \033[01;38;05;15m
 RES			= \033[m
 
 all: $(NAME)
+	@echo  "$(YELLOW) : OK$(RES)"
 
 $(NAME): $(LIB) $(OBJECTS)
 	@ gcc $(CFLAGS) -I. $(SRCS) -L ./libft -lft -o $(NAME)
