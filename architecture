@@ -1,0 +1,10 @@
+struct
+{
+	char	**	initial_data;
+	double	**	data_for_processing;
+}
+
+functions:
+
+- parser;
+- validator(char c) (read: invalid file, directory; char: not an int);
