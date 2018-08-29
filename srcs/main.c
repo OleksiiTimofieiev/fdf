@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "../includes/fdf.h"
 
 int main(void)
