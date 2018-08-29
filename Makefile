@@ -31,7 +31,7 @@ $(NAME): $(LIB) $(OBJECTS)
 $(LIB):
 	@echo  "$(GREEN)Compiling: $(WHITE)libft$(RES)$(YELLOW) : $(RES)\c)"
 	@make -C libft
-	@echo  "$(GREEN)Compiling: $(WHITE)fdf $(RES)$(YELLOW) : $(RES)\c)"
+	@echo  "$(GREEN)Compiling: $(WHITE)fdf  $(RES)$(YELLOW) : $(RES)\c)"
 
 $(OBJECTS): %.o: %.c
 	@gcc -c $(CFLAGS) $< -o $@
