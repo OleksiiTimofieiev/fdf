@@ -4,15 +4,17 @@
 
 //TODO: validation
 
+//TODO: parsing and validation in one func;
+
 
 int     main(int argc, char ** argv)
 {
-    char * test = NULL;
+    double ** test = NULL;
     if (argc == 2)
     {
-        test = getContents(argv[1]);
-            printf("%s\n", test);
+        test = transform_to_double(argv[1]);
     }
+
 
     system("leaks -q fdf");
 
