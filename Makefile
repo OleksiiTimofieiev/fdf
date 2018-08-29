@@ -1,10 +1,11 @@
 NAME		= fdf
 
-SRCS		=  ./srcs/main.c
-CFLAGS		= -Wall -Wextra -Werror
-OBJECTS 	= $(SRCS:.c=.o)
-LIB			= libft/libft.a
-INC		= includes/
+SRCS		=  	./srcs/main.c \
+				./srcs/parsing.c
+CFLAGS		= 	-Wall -Wextra -Werror
+OBJECTS 	= 	$(SRCS:.c=.o)
+LIB			= 	libft/libft.a
+INC			= 	includes/
 
 #colors
 RES			= \033[m
