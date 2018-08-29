@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/29 18:49:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:51:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,8 @@ char	*get_contents(char *filename)
 		return (NULL);
 	return (data_from_file);
 }
+
+// char *gtransform_to_double(char *data)
+// {
+	
+// }
