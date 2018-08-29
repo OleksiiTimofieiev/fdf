@@ -5,7 +5,7 @@
 
 typedef struct s_data
 {
-    int x;
+    double ** data;
 }              t_data;
 
 #endif

@@ -4,7 +4,7 @@ int main(void)
 {
     t_data sample;
 
-    sample.x = 0;
+    sample.data = NULL;
 
 
     printf("%s", "Makefile done");
