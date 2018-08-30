@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 11:27:02 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 11:31:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,16 @@ double **transform_to_double(char *filename)
 {
 	double	**array;
 	char	*data_from_file;
+	int		quantity_newline;
 
 	array = NULL;
 	data_from_file = NULL;
 	data_from_file = get_contents(filename);
 	if (data_from_file)
 	{
-		array = (double **)malloc(sizeof(double *) * quantity_of_newline(data_from_file) + 1);
-		array[quantity_of_newline(data_from_file)] = NULL;
+		quantity_newline = quantity_of_newline(data_from_file); 
+		array = (double **)malloc(sizeof(double *) * quantity_newline + 1);
+		array[quantity_newline] = NULL;
 	}
 	free(data_from_file);
 	return (array);
