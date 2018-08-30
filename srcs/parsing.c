@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/29 19:59:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 11:27:02 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,12 @@ double **transform_to_double(char *filename)
 
 	array = NULL;
 	data_from_file = NULL;
-
-
 	data_from_file = get_contents(filename);
-
-
 	if (data_from_file)
-		array = (double **)malloc(sizeof(double *) * quantity_of_newline(data_from_file));
-	else
 	{
-		ft_putstr("det2");
-
-		return (NULL);
+		array = (double **)malloc(sizeof(double *) * quantity_of_newline(data_from_file) + 1);
+		array[quantity_of_newline(data_from_file)] = NULL;
 	}
-
-
 	free(data_from_file);
-	
 	return (array);
 }

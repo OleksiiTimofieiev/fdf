@@ -13,6 +13,8 @@ int     main(int argc, char ** argv)
     if (argc == 2)
     {
         test = transform_to_double(argv[1]);
+		if(!test)
+			ft_putstr("No data in the file.\n"); // TODO: handle it;
     }
 
 
