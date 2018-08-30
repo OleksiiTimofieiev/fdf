@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 13:36:38 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 13:42:30 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,34 +50,24 @@ int **transform_to_int(char *filename)
 	int	i;
 	int j;
 
-
 	array = NULL;
-
-
 	data_from_file = ft_strsplit(test, '\n');
-
 	i = 0;
 	if (data_from_file)
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_from_file) + 1);
 		while (i < ft_2d_arr_size(data_from_file))
 		{
-
-
-
-			
 			array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]));
 			j = 0;
-
-				parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot;
-				while (j < ft_2d_arr_size(parsed_data))
-				{
-					array[i][j] = ft_atoi(parsed_data[j]);
-					j++;
-				}
-				ft_clean_2d_char(parsed_data);
-
-				i++;
+			parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot; // different len of the strings; // size of array / sizeof type
+			while (j < ft_2d_arr_size(parsed_data))
+			{
+				array[i][j] = ft_atoi(parsed_data[j]);
+				j++;
+			}
+			ft_clean_2d_char(parsed_data);
+			i++;
 		}
 		array[ft_2d_arr_size(data_from_file)] = NULL;
 	}
