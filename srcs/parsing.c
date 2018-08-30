@@ -6,13 +6,15 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 14:01:59 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 14:11:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-char	*get_contents(char *filename)
+// TODO: 1 dot; // different len of the strings; // broz to all sides;
+
+static char	*get_contents(char *filename)
 {
 	int		fd;
 	char	*data_from_file;
@@ -41,13 +43,13 @@ char	*get_contents(char *filename)
 	return (data_from_file);
 }
 
-void initialization(int **array, char **data_from_file, int i)
+static void	initialization(int **array, char **data_from_file, int i)
 {
 	char	**parsed_data;
 	int		j;
 
 	j = 0;
-	parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot; // different len of the strings; // size of array / sizeof type // broz to all sides;
+	parsed_data = ft_strsplit(data_from_file[i], 32);
 	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
 	while (j < ft_2d_arr_size(parsed_data))
 	{
@@ -58,20 +60,20 @@ void initialization(int **array, char **data_from_file, int i)
 	ft_clean_2d_char(parsed_data);
 }
 
-int **transform_to_int(char *filename)
+int			**transform_to_int(char *filename)
 {
 	int		**array;
-	char	**data_from_file;
-	char	*file_data; 
-	int	i;
+	char	**data_file;
+	char	*file_data;
+	int		i;
 
 	array = NULL;
 	file_data = get_contents(filename);
-	data_from_file = ft_strsplit(file_data, '\n');
+	data_file = ft_strsplit(file_data, '\n');
 	i = 0;
-	if (data_from_file)
+	if (data_file)
 	{
-		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_from_file) + 1);
+		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_file) + 1);
 		while (i < ft_2d_arr_size(data_from_file))
 			initialization(array, data_from_file, i++);
 		array[ft_2d_arr_size(data_from_file)] = NULL;
