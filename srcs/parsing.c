@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 17:01:33 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 18:15:14 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	initialization(int **array, char **data_from_file, int i)
 	parsed_data = ft_strsplit(buf, 32);
 	free(buf);
 	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
+	
 	while (j < ft_2d_arr_size(parsed_data))
 	{
 		before = parsed_data[j];
