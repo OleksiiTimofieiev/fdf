@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 15:00:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 15:28:23 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     main(int argc, char ** argv)
     {
         test = transform_to_int(argv[1]);
 		if(!test)
-			ft_putstr("No data in the file.\n"); // TODO: handle it;
+			ft_putstr("No data in the file.\n");
 
 
 

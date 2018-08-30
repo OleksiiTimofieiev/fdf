@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 15:01:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 15:39:13 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,44 @@ static void	initialization(int **array, char **data_from_file, int i)
 	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
 	while (j < ft_2d_arr_size(parsed_data))
 	{
+		char *before = parsed_data[j];
 		array[i][j] = ft_atoi(parsed_data[j]);
+		char *after = ft_itoa(array[i][j]);
+		if (!ft_strequ(before, after))
+		{
+			ft_putstr("Value is not an int\n");
+			exit(0);
+		}
+
+		free(after);
+
 		j++;
 	}
 	array[i][j] = INT_STOP;
 	ft_clean_2d_char(parsed_data);
+}
+
+static int	validation(char **data_file)
+{
+	size_t i;
+	size_t	j;
+
+	i = 0;
+	while(data_file[i])
+	{
+		j = 0;
+		while (j < ft_strlen(data_file[i]))
+		{
+			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == 32 || data_file[i][j] == '\n' 
+				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1]))
+				|| ft_isint(data_file[i][j]))
+				j++;
+			else
+				return(0);
+		}
+		i++;
+	}
+	return(1);
 }
 
 int			**transform_to_int(char *filename)
@@ -71,7 +104,7 @@ int			**transform_to_int(char *filename)
 	file_data = get_contents(filename);
 	i = 0;
 	data_file = (file_data) ? ft_strsplit(file_data, '\n') : NULL;
-	if (data_file)
+	if (data_file && validation(data_file))
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_file) + 1);
 		while (i < ft_2d_arr_size(data_file))
