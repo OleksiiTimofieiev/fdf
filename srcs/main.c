@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 13:37:22 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 14:01:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int     main(int argc, char ** argv)
 		int i = 0;
 		unsigned long j = 0;
 
-		while(i < 6)
+		while (test[i])
 		{
 			j = 0;
-			while (j < 3)
+			while (test[i][j] != INT_STOP)
 			{
 				ft_putnbr(test[i][j]);
 				ft_putchar(32);

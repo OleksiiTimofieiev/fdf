@@ -1,5 +1,6 @@
 #ifndef FDF_H
 # define FDF_H
+# define INT_STOP 777
 
 #include <stdio.h>
 #include <fcntl.h>

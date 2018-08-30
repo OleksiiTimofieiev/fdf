@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 13:50:56 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 14:01:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ void initialization(int **array, char **data_from_file, int i)
 	int		j;
 
 	j = 0;
-	parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot; // different len of the strings; // size of array / sizeof type
+	parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot; // different len of the strings; // size of array / sizeof type // broz to all sides;
+	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
 	while (j < ft_2d_arr_size(parsed_data))
 	{
 		array[i][j] = ft_atoi(parsed_data[j]);
 		j++;
 	}
+	array[i][j] = INT_STOP;
 	ft_clean_2d_char(parsed_data);
 }
 
@@ -71,12 +73,7 @@ int **transform_to_int(char *filename)
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_from_file) + 1);
 		while (i < ft_2d_arr_size(data_from_file))
-		{
-			array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]));
-			initialization(array, data_from_file, i);
-
-			i++;
-		}
+			initialization(array, data_from_file, i++);
 		array[ft_2d_arr_size(data_from_file)] = NULL;
 	}
 	ft_clean_2d_char(data_from_file);
