@@ -6,25 +6,11 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 11:34:40 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 13:36:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-int		quantity_of_newline(char *line)
-{
-	int i;
-
-	i = 0;
-	while (*line)
-	{
-		if (*line == '\n')
-			i++;
-		line++;
-	}
-	return (i);
-}
 
 char	*get_contents(char *filename)
 {
@@ -55,23 +41,47 @@ char	*get_contents(char *filename)
 	return (data_from_file);
 }
 
-// copy ** to *
-
-double **transform_to_double(char *filename)
+int **transform_to_int(char *filename)
 {
-	double	**array;
-	char	*data_from_file;
-	int		quantity_newline;
+	int	**array;
+	char	**data_from_file;
+	char	**parsed_data;
+	char *test = get_contents(filename);
+	int	i;
+	int j;
+
 
 	array = NULL;
-	data_from_file = NULL;
-	data_from_file = get_contents(filename);
+
+
+	data_from_file = ft_strsplit(test, '\n');
+
+	i = 0;
 	if (data_from_file)
 	{
-		quantity_newline = quantity_of_newline(data_from_file); 
-		array = (double **)malloc(sizeof(double *) * quantity_newline + 1);
-		array[quantity_newline] = NULL;
+		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_from_file) + 1);
+		while (i < ft_2d_arr_size(data_from_file))
+		{
+
+
+
+			
+			array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]));
+			j = 0;
+
+				parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot;
+				while (j < ft_2d_arr_size(parsed_data))
+				{
+					array[i][j] = ft_atoi(parsed_data[j]);
+					j++;
+				}
+				ft_clean_2d_char(parsed_data);
+
+				i++;
+		}
+		array[ft_2d_arr_size(data_from_file)] = NULL;
 	}
-	free(data_from_file);
+	ft_clean_2d_char(data_from_file);
+	free(test);
 	return (array);
 }

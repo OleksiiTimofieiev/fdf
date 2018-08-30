@@ -11,6 +11,6 @@ typedef struct s_data
     double ** data;
 }              t_data;
 
-double **transform_to_double(char *filename);
+int **transform_to_int(char *filename);
 
 #endif
