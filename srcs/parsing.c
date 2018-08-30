@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 16:18:03 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:49:01 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,39 @@ static int	validation(char **data_file)
 		j = 0;
 		while (j < ft_strlen(data_file[i]))
 		{
-			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' ' || data_file[i][j] == '\n' 
-				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
-				j++;
-			else
-				return(0);
+
+	if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' ' || data_file[i][j] == '\n' || data_file[i][j] == '\t' || (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
+		j++;
+	else
+		return (0);
 		}
+		i++;
+	}
+
+	return(1);
+}
+
+int			int_array_len(int *array)
+{
+	int i;
+
+	i = 0;
+	while(array[i] != INT_STOP)
+		i++;
+	return(i);
+}
+
+int			equality_of_rows(int **array)
+{
+	int i;
+	int len;
+
+	i = 0;
+	len = int_array_len(array[i]);
+	while(array[i])
+	{
+		if (int_array_len(array[i]) != len)
+			return(0);
 		i++;
 	}
 	return(1);
@@ -111,5 +138,7 @@ int			**transform_to_int(char *filename)
 	}
 	(data_file) ? ft_clean_2d_char(data_file) : 0;
 	(file_data) ? free(file_data) : 0;
-	return (array);
+	if(array && equality_of_rows(array))
+		return (array);
+	return(NULL);
 }
