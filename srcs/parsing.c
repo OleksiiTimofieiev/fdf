@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 13:42:30 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 13:50:56 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,31 @@ char	*get_contents(char *filename)
 	return (data_from_file);
 }
 
+void initialization(int **array, char **data_from_file, int i)
+{
+	char	**parsed_data;
+	int		j;
+
+	j = 0;
+	parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot; // different len of the strings; // size of array / sizeof type
+	while (j < ft_2d_arr_size(parsed_data))
+	{
+		array[i][j] = ft_atoi(parsed_data[j]);
+		j++;
+	}
+	ft_clean_2d_char(parsed_data);
+}
+
 int **transform_to_int(char *filename)
 {
-	int	**array;
+	int		**array;
 	char	**data_from_file;
-	char	**parsed_data;
-	char *test = get_contents(filename);
+	char	*file_data; 
 	int	i;
-	int j;
 
 	array = NULL;
-	data_from_file = ft_strsplit(test, '\n');
+	file_data = get_contents(filename);
+	data_from_file = ft_strsplit(file_data, '\n');
 	i = 0;
 	if (data_from_file)
 	{
@@ -59,19 +73,13 @@ int **transform_to_int(char *filename)
 		while (i < ft_2d_arr_size(data_from_file))
 		{
 			array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]));
-			j = 0;
-			parsed_data = ft_strsplit(data_from_file[i], 32); // TODO: 1 dot; // different len of the strings; // size of array / sizeof type
-			while (j < ft_2d_arr_size(parsed_data))
-			{
-				array[i][j] = ft_atoi(parsed_data[j]);
-				j++;
-			}
-			ft_clean_2d_char(parsed_data);
+			initialization(array, data_from_file, i);
+
 			i++;
 		}
 		array[ft_2d_arr_size(data_from_file)] = NULL;
 	}
 	ft_clean_2d_char(data_from_file);
-	free(test);
+	free(file_data);
 	return (array);
 }
