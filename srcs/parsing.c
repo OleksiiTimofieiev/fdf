@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 14:54:30 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 15:01:06 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ static char	*get_contents(char *filename)
 	}
 	while (get_next_line(fd, &line))
 	{
-		ft_putstr("det\n");
-		
 		tmp = ft_strjoin(data_from_file, line);
 		free(data_from_file);
 		data_from_file = ft_strnew(ft_strlen(tmp) + 1);
@@ -70,12 +68,9 @@ int			**transform_to_int(char *filename)
 	int		i;
 
 	array = NULL;
-	file_data = NULL;
-	data_file = NULL;
 	file_data = get_contents(filename);
 	i = 0;
-	if (file_data)
-		data_file = ft_strsplit(file_data, '\n');
+	data_file = (file_data) ? ft_strsplit(file_data, '\n') : NULL;
 	if (data_file)
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_file) + 1);
@@ -83,9 +78,7 @@ int			**transform_to_int(char *filename)
 			initialization(array, data_file, i++);
 		array[ft_2d_arr_size(data_file)] = NULL;
 	}
-	if (data_file)
-		ft_clean_2d_char(data_file);
-	if (file_data)
-		free(file_data);
+	(data_file) ? ft_clean_2d_char(data_file) : 0;
+	(file_data) ? free(file_data) : 0;
 	return (array);
 }
