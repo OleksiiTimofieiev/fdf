@@ -6,13 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 16:53:13 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 17:01:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-// TODO: 1 dot; // different len of the strings; // broz to all sides;
+// TODO: 1 dot; // different len of the strings; // broz to all sides; // size of the monitor
 
 static char	*get_contents(char *filename)
 {
@@ -45,13 +45,16 @@ static char	*get_contents(char *filename)
 
 static void	initialization(int **array, char **data_from_file, int i)
 {
-	char	**parsed_data;
 	int		j;
+	char	**parsed_data;
 	char	*before;
 	char	*after;
+	char*buf;
 
 	j = 0;
-	parsed_data = ft_strsplit(data_from_file[i], 32);
+	buf = ft_strtrim(data_from_file[i]);
+	parsed_data = ft_strsplit(buf, 32);
+	free(buf);
 	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
 	while (j < ft_2d_arr_size(parsed_data))
 	{
@@ -81,10 +84,11 @@ static int	validation(char **data_file)
 		j = 0;
 		while (j < ft_strlen(data_file[i]))
 		{
-			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' '
+			if (ft_isdigit(data_file[i][j])
+				|| data_file[i][j] == ' '
 				|| data_file[i][j] == '\n'
-				|| data_file[i][j] == '\t' || (data_file[i][j] == '-'
-				&& ft_isdigit(data_file[i][j + 1])))
+				|| data_file[i][j] == '\t'
+				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
 				j++;
 			else
 				return (0);
