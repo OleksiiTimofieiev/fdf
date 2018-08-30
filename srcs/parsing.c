@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 15:39:13 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 15:43:25 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,9 @@ static void	initialization(int **array, char **data_from_file, int i)
 		char *after = ft_itoa(array[i][j]);
 		if (!ft_strequ(before, after))
 		{
-			ft_putstr("Value is not an int\n");
+			free(after);
 			exit(0);
 		}
-
 		free(after);
 
 		j++;
@@ -74,11 +73,15 @@ static int	validation(char **data_file)
 {
 	size_t i;
 	size_t	j;
+	size_t len;
 
 	i = 0;
+	len = ft_strlen(data_file[i]);
 	while(data_file[i])
 	{
-		j = 0;
+		if (ft_strlen(data_file[i]) != len)
+			return (0);
+			j = 0;
 		while (j < ft_strlen(data_file[i]))
 		{
 			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == 32 || data_file[i][j] == '\n' 
