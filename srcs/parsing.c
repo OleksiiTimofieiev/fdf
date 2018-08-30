@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 16:49:01 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/30 16:53:13 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,23 @@ static void	initialization(int **array, char **data_from_file, int i)
 {
 	char	**parsed_data;
 	int		j;
+	char	*before;
+	char	*after;
 
 	j = 0;
 	parsed_data = ft_strsplit(data_from_file[i], 32);
 	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
 	while (j < ft_2d_arr_size(parsed_data))
 	{
-		char *before = parsed_data[j];
+		before = parsed_data[j];
 		array[i][j] = ft_atoi(parsed_data[j]);
-		char *after = ft_itoa(array[i][j]);
+		after = ft_itoa(array[i][j]);
 		if (!ft_strequ(before, after))
 		{
 			free(after);
 			exit(0);
 		}
 		free(after);
-
 		j++;
 	}
 	array[i][j] = INT_STOP;
@@ -75,21 +76,22 @@ static int	validation(char **data_file)
 	size_t	j;
 
 	i = 0;
-	while(data_file[i])
+	while (data_file[i])
 	{
 		j = 0;
 		while (j < ft_strlen(data_file[i]))
 		{
-
-	if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' ' || data_file[i][j] == '\n' || data_file[i][j] == '\t' || (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
-		j++;
-	else
-		return (0);
+			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' '
+				|| data_file[i][j] == '\n'
+				|| data_file[i][j] == '\t' || (data_file[i][j] == '-'
+				&& ft_isdigit(data_file[i][j + 1])))
+				j++;
+			else
+				return (0);
 		}
 		i++;
 	}
-
-	return(1);
+	return (1);
 }
 
 int			int_array_len(int *array)
@@ -97,9 +99,9 @@ int			int_array_len(int *array)
 	int i;
 
 	i = 0;
-	while(array[i] != INT_STOP)
+	while (array[i] != INT_STOP)
 		i++;
-	return(i);
+	return (i);
 }
 
 int			equality_of_rows(int **array)
@@ -109,13 +111,13 @@ int			equality_of_rows(int **array)
 
 	i = 0;
 	len = int_array_len(array[i]);
-	while(array[i])
+	while (array[i])
 	{
 		if (int_array_len(array[i]) != len)
-			return(0);
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
 int			**transform_to_int(char *filename)
@@ -138,7 +140,7 @@ int			**transform_to_int(char *filename)
 	}
 	(data_file) ? ft_clean_2d_char(data_file) : 0;
 	(file_data) ? free(file_data) : 0;
-	if(array && equality_of_rows(array))
+	if (array && equality_of_rows(array))
 		return (array);
-	return(NULL);
+	return (NULL);
 }
