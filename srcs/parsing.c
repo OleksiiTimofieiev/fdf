@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 11:50:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 12:28:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,26 +114,28 @@ static int	validation(char **data_file)
 	return (1);
 }
 
-int			int_array_len(int *array)
-{
-	int i;
-
-	i = 0;
-	while (array[i] != INT_STOP)
-		i++;
-	return (i);
-}
-
 int			equality_of_rows(int **array)
 {
 	int i;
+	int	j;
 	int len;
+	int count;
 
 	i = 0;
-	len = int_array_len(array[i]);
+	j = 0;
+	len = 0;
+	while (array[0][j++] != INT_STOP)
+		len++;
 	while (array[i])
 	{
-		if (int_array_len(array[i]) != len)
+		j = 0;
+		count = 0;
+		while (array[i][j] != INT_STOP)
+		{
+			count++;
+			j++;
+		}
+		if (count != len)
 			return (0);
 		i++;
 	}
