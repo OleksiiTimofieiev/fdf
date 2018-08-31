@@ -6,15 +6,26 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 11:28:52 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:43:27 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-// TODO: 1 dot; // different len of the strings; // broz to all sides; // size of the monitor
+// TODO: 1 dot; // broz to all sides; // size of the monitor
 
-
+void	open_the_file(int *fd, char *filename, char **data_from_file)
+{
+	*data_from_file = NULL;
+	*data_from_file = ft_strnew(0);
+	*fd = open(filename, O_RDONLY);
+	if (*fd == -1)
+	{
+		ft_putstr("Not a valid file.\n");
+		free(*data_from_file);
+		exit(0);
+	}
+}
 
 static char	*get_contents(char *filename)
 {
@@ -23,23 +34,17 @@ static char	*get_contents(char *filename)
 	char	*line;
 	char	*tmp;
 
-	data_from_file = ft_strnew(0);
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		free(data_from_file);
-		return (NULL);
-	}
+	open_the_file(&fd, filename, &data_from_file);
 	while (get_next_line(fd, &line))
 	{
-		if(!ft_strlen(line))
+		if (line && !ft_strlen(line))
 		{
 			free(line);
 			free(data_from_file);
-			return(NULL);
+			return (NULL);
 		}
 		tmp = ft_strjoin(data_from_file, line);
-		free(data_from_file);
+		(data_from_file) ? free(data_from_file) : 0;
 		data_from_file = ft_strnew(ft_strlen(tmp) + 1);
 		ft_strcpy(data_from_file, tmp);
 		data_from_file[ft_strlen(tmp)] = '\n';
@@ -146,11 +151,6 @@ int			**transform_to_int(char *filename)
 	file_data = get_contents(filename);
 	i = 0;
 	data_file = (file_data) ? ft_strsplit(file_data, '\n') : NULL;
-	// while(data_file[i])
-	// {
-	// 	ft_putstr(data_file[i++]);
-	// 	ft_putstr("\n");
-	// }
 	if (data_file && validation(data_file))
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_file) + 1);

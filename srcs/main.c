@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 11:27:01 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:43:39 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ int     main(int argc, char ** argv)
 		if(!test)
 			ft_putstr("No data in the file.\n");
 
-		// int i = 0;
-		// unsigned long j = 0;
+		int i = 0;
+		unsigned long j = 0;
 
-		// while (test[i])
-		// {
-		// 	j = 0;
-		// 	while (test[i][j] != INT_STOP)
-		// 	{
-		// 		ft_putnbr(test[i][j]);
-		// 		ft_putchar(32);
+		while (test[i])
+		{
+			j = 0;
+			while (test[i][j] != INT_STOP)
+			{
+				ft_putnbr(test[i][j]);
+				ft_putchar(32);
 
-		// 		j++;
-		// 	}
-		// 	ft_putchar('\n');
-		// 	i++;
-		// }
+				j++;
+			}
+			ft_putchar('\n');
+			i++;
+		}
 	}
     system("leaks -q fdf");
 
