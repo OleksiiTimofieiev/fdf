@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 11:43:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 14:43:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 //TODO: parsing -> add to linked list;
 
 //TODO: validation
+
+// TODO: 1 dot; // broz to all sides;
+
+
 
 int     main(int argc, char ** argv)
 {
@@ -42,7 +46,9 @@ int     main(int argc, char ** argv)
 			i++;
 		}
 	}
-    system("leaks -q fdf");
 
-    return (0);
+
+	system("leaks -q fdf");
+
+	return (0);
 }

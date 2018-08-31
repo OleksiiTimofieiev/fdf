@@ -1,14 +1,15 @@
 NAME		= fdf
 
 SRCS		=  	./srcs/main.c \
-				./srcs/parsing.c
+				./srcs/parsing.c \
+				./srcs/validation.c 
 CFLAGS		= 	-Wall -Wextra -Werror
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a
 INC			= 	includes/
 
 #colors
-RES			= \033[m
+RESET			= \033[m
 RED         = \033[1;31m
 GREEN       = \033[01;38;05;46m
 YELLOW      = \033[01;38;05;226m
@@ -18,19 +19,19 @@ CYAN        = \033[1;36m
 WHITE       = \033[01;38;05;15m
 
 all: $(NAME)
-	@echo  "$(YELLOW) : OK$(RES)"
+	@echo  "$(YELLOW) : OK$(RESET)"
 
 $(NAME): $(LIB) $(OBJECTS)
 	@ gcc $(CFLAGS) -I$(INC) $(SRCS) -L ./libft -lft -o $(NAME)
 
 $(LIB):
-	@echo  "$(GREEN)Compiling: $(WHITE)libft$(RES)$(YELLOW) : $(RES)\c)"
+	@echo  "$(GREEN)Compiling: $(WHITE)libft$(RESET)$(YELLOW) : $(RESET)\c)"
 	@make -C libft
-	@echo  "$(GREEN)Compiling: $(WHITE)fdf  $(RES)$(YELLOW) : $(RES)\c)"
+	@echo  "$(GREEN)Compiling: $(WHITE)fdf  $(RESET)$(YELLOW) : $(RESET)\c)"
 
 $(OBJECTS): %.o: %.c
 	@gcc -c $(CFLAGS) $< -o $@
-	@echo  "$(YELLOW)█$(RES)\c)"
+	@echo  "$(YELLOW)█$(RESET)\c)"
 
 clean:
 	@ make -C libft clean

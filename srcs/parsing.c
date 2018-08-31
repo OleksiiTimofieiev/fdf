@@ -6,15 +6,16 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 12:28:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 14:53:02 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-// TODO: 1 dot; // broz to all sides; // size of the monitor
+//TODO: size of the monitor
 
-void	open_the_file(int *fd, char *filename, char **data_from_file)
+
+static	void	open_the_file(int *fd, char *filename, char **data_from_file)
 {
 	*data_from_file = NULL;
 	*data_from_file = ft_strnew(0);
@@ -27,7 +28,7 @@ void	open_the_file(int *fd, char *filename, char **data_from_file)
 	}
 }
 
-static char	*get_contents(char *filename)
+static char		*get_contents(char *filename)
 {
 	int		fd;
 	char	*data_from_file;
@@ -56,7 +57,7 @@ static char	*get_contents(char *filename)
 	return (data_from_file);
 }
 
-static void	initialization(int **array, char **data_from_file, int i)
+static void		initialization(int **array, char **data_from_file, int i)
 {
 	int		j;
 	char	**parsed_data;
@@ -85,42 +86,25 @@ static void	initialization(int **array, char **data_from_file, int i)
 	ft_clean_2d_char(parsed_data);
 }
 
-static int	validation(char **data_file)
-{
-	size_t	i;
-	size_t	j;
-	int		some_digits;
-
-	i = 0;
-	while (data_file[i])
-	{
-		j = 0;
-		some_digits = 0;
-		while (j < ft_strlen(data_file[i]))
-		{
-			if (ft_isdigit(data_file[i][j]))
-				some_digits++;
-			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' '
-				|| data_file[i][j] == '\n' || data_file[i][j] == '\t'
-				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
-				j++;
-			else
-				return (0);
-		}
-		if (!some_digits)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int			equality_of_rows(int **array)
+static	int		equality_of_rows(int **array)
 {
 	int i;
 	int	j;
 	int len;
 	int count;
 
+	// i = 0;
+	// while(array[i])
+	// {
+	// 	j = 0;
+	// 	while(array[i][j] != INT_STOP)
+	// 	{
+	// 		ft_putnbr(array[i][j]);
+	// 		ft_putchar(' ');
+	// 			j++;
+	// 	}	
+	// 	i++;
+	// }
 	i = 0;
 	j = 0;
 	len = 0;
@@ -142,7 +126,7 @@ int			equality_of_rows(int **array)
 	return (1);
 }
 
-int			**transform_to_int(char *filename)
+int				**transform_to_int(char *filename)
 {
 	int		**array;
 	char	**data_file;
@@ -164,5 +148,6 @@ int			**transform_to_int(char *filename)
 	(file_data) ? free(file_data) : 0;
 	if (array && equality_of_rows(array))
 		return (array);
+	ft_putstr("here2\n");
 	return (NULL);
 }
