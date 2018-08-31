@@ -6,13 +6,15 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 11:09:41 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:28:52 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 // TODO: 1 dot; // different len of the strings; // broz to all sides; // size of the monitor
+
+
 
 static char	*get_contents(char *filename)
 {
@@ -30,6 +32,12 @@ static char	*get_contents(char *filename)
 	}
 	while (get_next_line(fd, &line))
 	{
+		if(!ft_strlen(line))
+		{
+			free(line);
+			free(data_from_file);
+			return(NULL);
+		}
 		tmp = ft_strjoin(data_from_file, line);
 		free(data_from_file);
 		data_from_file = ft_strnew(ft_strlen(tmp) + 1);
@@ -138,6 +146,11 @@ int			**transform_to_int(char *filename)
 	file_data = get_contents(filename);
 	i = 0;
 	data_file = (file_data) ? ft_strsplit(file_data, '\n') : NULL;
+	// while(data_file[i])
+	// {
+	// 	ft_putstr(data_file[i++]);
+	// 	ft_putstr("\n");
+	// }
 	if (data_file && validation(data_file))
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_file) + 1);
