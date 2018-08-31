@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 16:46:29 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 17:20:29 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char *delete_colors_from_the_line(char *line) //use some backtracking or recursi
 			line[i] = '*';
 		i++;
 	}
+	ft_putstr(line);
+	ft_putstr("\n");
 
 	i = 0;
 	int count = 0;
@@ -41,16 +43,26 @@ char *delete_colors_from_the_line(char *line) //use some backtracking or recursi
 		i++;
 	}
 	char * res;
+	
 	res = (char *)malloc(sizeof(char) * (count + 1));
 	
 	i = 0;
-	while(i < count)
-		while(*line)
+
+	while(*line)
+	{
+		if (*line != '*')
 		{
-			if (*line != '*')
-				res[i++] = *line;
-			line++;
+			res[i] = *line;
+			i++;
 		}
+		line++;
+	}
+	
+	ft_putstr("here\n");
+	res[i] = '\0';
+
+
+	
 	return (res);
 }
 
