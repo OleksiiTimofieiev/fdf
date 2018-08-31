@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 15:22:03 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 16:44:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,66 @@
 
 char *delete_colors_from_the_line(char *line) //use some backtracking or recursion;
 {
-	int i;
-	int j;
-	char *res;
+	// int i;
+	// int j;
+	// char *res;
+
+	// i = 0;
+	// j = 0;
+	// res = NULL;
+	// while (line[i] != ',')
+	// 	i++;
+
+	// while (j < i)
+	// {
+	// 	res[j] = line[j];
+	// 	j++;
+	// }
+	// res[j] = '\0';
+	int	i;
+	int	flag_bool;
 
 	i = 0;
-	j = 0;
-	res = NULL;
-	while (line[i] != ',')
-		i++;
-	res = (char *)malloc(sizeof(char) * (i + 1));
+	flag_bool = 0;
 
-	while (j < i)
+	while(line[i])
 	{
-		res[j] = line[j];
-		j++;
+		if(line[i] ==',')
+			flag_bool = 1;
+		else if(line[i] == ' ' || line[i] == '\t')
+			flag_bool = 0;
+		
+		if(flag_bool)
+			line[i] = '*';
+		i++;
 	}
-	res[j] = '\0';
+
+	i = 0;
+	int count = 0;
+	while(line[i])
+	{
+		if(line[i] != '*')
+			count++;
+		i++;
+	}
+	char * res;
+	res = (char *)malloc(sizeof(char) * (count + 1));
+	
+	i = 0;
+	while(i < count)
+	{
+		while(*line)
+		{
+			if (*line != '*')
+			{
+				res[i] = *line;
+				i++;
+			}
+			line++;
+		}
+		
+	}
+
 	return (res);
 }
 
