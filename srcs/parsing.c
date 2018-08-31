@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/30 18:17:48 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:09:41 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	initialization(int **array, char **data_from_file, int i)
 	char	**parsed_data;
 	char	*before;
 	char	*after;
-	char*buf;
+	char	*buf;
 
 	j = 0;
 	buf = ft_strtrim(data_from_file[i]);
@@ -76,22 +76,26 @@ static int	validation(char **data_file)
 {
 	size_t	i;
 	size_t	j;
+	int		some_digits;
 
 	i = 0;
 	while (data_file[i])
 	{
 		j = 0;
+		some_digits = 0;
 		while (j < ft_strlen(data_file[i]))
 		{
-			if (ft_isdigit(data_file[i][j])
-				|| data_file[i][j] == ' '
-				|| data_file[i][j] == '\n'
-				|| data_file[i][j] == '\t'
+			if (ft_isdigit(data_file[i][j]))
+				some_digits++;
+			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' '
+				|| data_file[i][j] == '\n' || data_file[i][j] == '\t'
 				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
 				j++;
 			else
 				return (0);
 		}
+		if (!some_digits)
+			return (0);
 		i++;
 	}
 	return (1);
