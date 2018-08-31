@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 14:53:02 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 15:07:19 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ int				**transform_to_int(char *filename)
 	file_data = get_contents(filename);
 	i = 0;
 	data_file = (file_data) ? ft_strsplit(file_data, '\n') : NULL;
-	if (data_file && validation(data_file))
+	if (data_file != NULL && validation(data_file))
 	{
 		array = (int **)malloc(sizeof(int*) * ft_2d_arr_size(data_file) + 1);
 		while (i < ft_2d_arr_size(data_file))
@@ -148,6 +148,5 @@ int				**transform_to_int(char *filename)
 	(file_data) ? free(file_data) : 0;
 	if (array && equality_of_rows(array))
 		return (array);
-	ft_putstr("here2\n");
 	return (NULL);
 }

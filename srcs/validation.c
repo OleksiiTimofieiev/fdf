@@ -6,13 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 14:52:25 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 15:16:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-char *delete_colors_from_the_line(char *line)
+char *delete_colors_from_the_line(char *line) //use some backtracking or recursion;
 {
 	int i;
 	int j;
@@ -36,29 +36,30 @@ char *delete_colors_from_the_line(char *line)
 
 int		validation(char **data_file)
 {
+
 	size_t	i;
 	size_t	j;
 	int		some_digits;
-	// char * buf;
+	char * buf = NULL;
 
 	i = 0;
 	while (data_file[i])
 	{
 		j = 0;
 		some_digits = 0;
-		// if (ft_str_find_chr(data_file[i], ','))
-		// {
-		// 	buf = delete_colors_from_the_line(data_file[i]);
-		// 	free(data_file[i]);
-		// 	data_file[i] = NULL;
-		// 	data_file[i] = (char*)malloc(sizeof(char) * 3+1));
-		// 	int q = 0;
-		// 	while (q < 3)
-		// 	{
-		// 		data_file[i] = buf[i]; 
-		// 	}
-		// 	free(buf);
-		// }
+		if (ft_str_find_chr(data_file[i], ','))
+		{
+			buf = delete_colors_from_the_line(data_file[i]);
+			free(data_file[i]);
+			data_file[i] = (char*)malloc(sizeof(char) * 6);
+			int q = 0;
+			while (q < 6)
+			{
+				data_file[i][q] = buf[q]; 
+				q++;
+			}
+			free(buf);
+		}
 		while (j < ft_strlen(data_file[i]))
 		{
 			if (ft_isdigit(data_file[i][j]))
