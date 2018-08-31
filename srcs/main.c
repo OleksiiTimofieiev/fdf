@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 14:58:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 17:21:56 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ int     main(int argc, char ** argv)
 			i++;
 		}
 	}
-	char * line = "9,134123413";
-
-	int x = ft_atoi(line);
-
-	ft_putnbr(x);
 
 
 	system("leaks -q fdf");
