@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 15:16:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 15:22:03 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char *delete_colors_from_the_line(char *line) //use some backtracking or recursi
 
 int		validation(char **data_file)
 {
-
 	size_t	i;
 	size_t	j;
 	int		some_digits;
@@ -51,13 +50,7 @@ int		validation(char **data_file)
 		{
 			buf = delete_colors_from_the_line(data_file[i]);
 			free(data_file[i]);
-			data_file[i] = (char*)malloc(sizeof(char) * 6);
-			int q = 0;
-			while (q < 6)
-			{
-				data_file[i][q] = buf[q]; 
-				q++;
-			}
+			data_file[i] = ft_strdup(buf);
 			free(buf);
 		}
 		while (j < ft_strlen(data_file[i]))
@@ -69,9 +62,7 @@ int		validation(char **data_file)
 				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
 				j++;
 			else
-			{
 				return (0);
-			}
 		}
 		if (!some_digits)
 			return (0);
