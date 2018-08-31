@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 17:20:29 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 17:25:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ char *delete_colors_from_the_line(char *line) //use some backtracking or recursi
 			flag_bool = 1;
 		else if(line[i] == ' ' || line[i] == '\t')
 			flag_bool = 0;
-		
 		if(flag_bool)
 			line[i] = '*';
 		i++;
 	}
-	ft_putstr(line);
-	ft_putstr("\n");
 
 	i = 0;
 	int count = 0;
