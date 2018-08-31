@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 17:25:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/08/31 17:25:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,7 @@ char *delete_colors_from_the_line(char *line) //use some backtracking or recursi
 		}
 		line++;
 	}
-	
-	ft_putstr("here\n");
 	res[i] = '\0';
-
-
-	
 	return (res);
 }
 
