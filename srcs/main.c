@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 15:15:06 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 15:17:23 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ int		len_of_int_rows(int *parsed_data)
 	return (i);
 }
 
-void	fill_the_initial_matrix(t_coord **data, int **parsed_data)
+void fill_the_initial_matrix(t_coord **data, int **parsed_data)
 {
 	int	i;
 	int	j;
 	i = 0;
 	j = 0;
 	
-	
+	data = (t_coord **)malloc(sizeof(t_coord *) * len_of_int_rows(parsed_data[0]) + 1);
+
 	while(i < 3)
 	{
 		data[i] = (t_coord *)malloc(sizeof(t_coord) * 3);
@@ -78,10 +79,7 @@ int		main(int argc, char **argv)
 		if(!parsed_data)
 			ft_putstr("Invalid data in the file.\n");
 	}
-	
-	// system("leaks -q fdf");
 
-	data = (t_coord **)malloc(sizeof(t_coord *) * len_of_int_rows(parsed_data[0]) + 1);
 	
 	fill_the_initial_matrix(data, parsed_data);
 
