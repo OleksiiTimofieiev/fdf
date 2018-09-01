@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 15:30:31 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 15:30:42 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_coord **fill_the_initial_matrix(int **parsed_data)
 		if (!(res[i] = (t_coord *)malloc(sizeof(t_coord) * size_row(parsed_data[i]))))
 			return (NULL);
 		j = 0;
-		while (j < 3)
+		while (j < size_row(parsed_data[i]))
 		{
 			res[i][j].x = j;
 			res[i][j].y = i;
