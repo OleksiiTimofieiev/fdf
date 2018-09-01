@@ -46,3 +46,9 @@ MLX features:
 - get max window coords;
 - putpixel or put image;
 - writing the char * to the screen;
+
+Bresenham's line algorithm:
+http://www.falloutsoftware.com/tutorials/dd/dd4.htm
+geeks
+tutorial: https://www.youtube.com/watch?v=5NV7HDI4xWk
+https://www.youtube.com/watch?v=p0PCdO9IWms
