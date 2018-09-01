@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 10:37:42 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 10:44:20 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int				validation(char **data_file)
 			if (ft_isdigit(data_file[i][j]))
 				some_digits++;
 			if (ft_isdigit(data_file[i][j]) || data_file[i][j] == ' '
-				|| data_file[i][j] == '\n' || data_file[i][j] == '\t'
+				|| data_file[i][j] == '\n'
 				|| (data_file[i][j] == '-' && ft_isdigit(data_file[i][j + 1])))
 				j++;
 			else

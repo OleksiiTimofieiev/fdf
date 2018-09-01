@@ -1,8 +1,9 @@
 File handling block:
-- defence from opening the directoty
+- defence from opening the directoty;
 - not existing file;
 
 Input data:
 - not a number or space;
 - empty file;
 - max value of the monitor dimension;
+- no tabs as separator;
