@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 13:39:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 13:57:44 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,22 @@ int     main(int argc, char ** argv)
 		if(!test)
 			ft_putstr("Invalid data in the file.\n");
 
-	// 	int i = 0;
-	// 	unsigned long j = 0;
+		int i = 0;
+		unsigned long j = 0;
 
-	// 	while (test[i])
-	// 	{
-	// 		j = 0;
-	// 		while (test[i][j] != INT_STOP)
-	// 		{
-	// 			ft_putnbr(test[i][j]);
-	// 			ft_putchar(32);
+		while (test[i])
+		{
+			j = 0;
+			while (test[i][j] != INT_STOP)
+			{
+				ft_putnbr(test[i][j]);
+				ft_putchar(32);
 
-	// 			j++;
-	// 		}
-	// 		ft_putchar('\n');
-	// 		i++;
-	// 	}
+				j++;
+			}
+			ft_putchar('\n');
+			i++;
+		}
 	}
 
 

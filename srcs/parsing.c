@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 13:51:40 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 13:58:17 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static char		*get_contents(char *filename)
 			free(data_from_file);
 			return (NULL);
 		}
-		(!tmp) ? exit(0) : 0;
 		tmp = ft_strjoin(data_from_file, line);
+		(!tmp) ? exit(0) : 0;
 		(data_from_file) ? free(data_from_file) : 0;
 		data_from_file = ft_strnew(ft_strlen(tmp) + 1);
 		ft_strcpy(data_from_file, tmp);
@@ -50,8 +50,6 @@ static char		*get_contents(char *filename)
 		free(tmp);
 		free(line);
 	}
-	ft_putstr("here2");
-
 	if (close(fd) == -1)
 		return (NULL);
 	return (data_from_file);
