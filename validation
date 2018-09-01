@@ -5,7 +5,7 @@ File handling block:
 Input data:
 - not a number or space;
 - empty file;
-- empty line;
+- empty line in the start or in the middle;
 - max value of the monitor dimension;
 - no tabs as separator;
 - y not more then 2.000; in orde to have all pixels on the monitor;

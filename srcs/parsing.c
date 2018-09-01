@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 13:59:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 14:02:28 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ static char		*get_contents(char *filename)
 	{
 		if (line && !ft_strlen(line))
 		{
-			// free(line);
-			free(data_from_file);
+			free(line);
 			return (NULL);
 		}
 		tmp = ft_strjoin(data_from_file, line);
