@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 14:28:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 14:28:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,6 @@ int		main(int argc, char **argv)
 	t_coord		**data;
 
 	data = NULL;
-
-	// z = (t_coord**)malloc(sizeof(t_coord*));
-
-	// z[0] = (t_coord *)malloc(sizeof(t_coord )*2);
-
-	// z[0][0].x = 1;
-	// z[0][0].y = 2;
-
-	// z[0][1].x = 3;
-	// z[0][1].y = 4;
-
-	// ft_putnbr(z[0][0].x);
-	// ft_putchar('\n');
-	// ft_putnbr(z[0][0].y);
-	// ft_putchar('\n');
-
-	// ft_putchar('\n');
-
-	// ft_putnbr(z[0][1].x);
-	// ft_putchar('\n');
-	// ft_putnbr(z[0][1].y);
-	// ft_putchar('\n');
-
-	// ft_putchar('\n');
 
 	int **parsed_data = NULL;
 	if (argc == 2)
