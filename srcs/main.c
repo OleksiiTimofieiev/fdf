@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 15:17:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 15:30:31 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,60 +16,60 @@
 
 //TODO: 1 dot; // broz to all sides;
 
-int		len_of_int_rows(int *parsed_data)
+int		rows(int **parsed_data)
 {
 	int i;
 
 	i = 0;
-	while(parsed_data[i] != INT_STOP)
+	while(parsed_data[i])
 		i++;
 	return (i);
 }
 
-void fill_the_initial_matrix(t_coord **data, int **parsed_data)
+int 	size_row(int *parsed_data)
 {
+	int i;
+
+	i = 0;
+	while (parsed_data[i] != INT_STOP)
+		i++;
+	return (i);
+}
+
+t_coord **fill_the_initial_matrix(int **parsed_data)
+{
+	t_coord **res;
 	int	i;
 	int	j;
+
 	i = 0;
 	j = 0;
-	
-	data = (t_coord **)malloc(sizeof(t_coord *) * len_of_int_rows(parsed_data[0]) + 1);
-
-	while(i < 3)
+	res = NULL;
+	if(!(res = (t_coord **)malloc(sizeof(t_coord *) * rows(parsed_data) + 1)))
+		return (NULL);
+	while (i < rows(parsed_data))
 	{
-		data[i] = (t_coord *)malloc(sizeof(t_coord) * 3);
+		if (!(res[i] = (t_coord *)malloc(sizeof(t_coord) * size_row(parsed_data[i]))))
+			return (NULL);
 		j = 0;
 		while (j < 3)
 		{
-			data[i][j].x = j;
-			data[i][j].y = i;
-			data[i][j].z = parsed_data[i][j];
+			res[i][j].x = j;
+			res[i][j].y = i;
+			res[i][j].z = parsed_data[i][j];
 			j++;
 		}
 		i++;
 	}
-	// i = 0;
-	// while (i < 3)
-	// {
-	// 	j = 0;
-	// 	while (j < 3)
-	// 	{
-	// 		ft_putnbr(data[i][j].x);
-	// 		ft_putnbr(data[i][j].y);
-	// 		ft_putnbr(data[i][j].z);
-	// 		ft_putchar(32);
-	// 		j++;
-	// 	}
-	// 	ft_putchar('\n');
-	// 	i++;
-	// }
-	
+	res[i] = NULL;
+	return(res);
 }
 
 int		main(int argc, char **argv)
 {
 	t_coord		**data;
 
+	data = NULL;
 
 
 	int **parsed_data = NULL;
@@ -80,8 +80,7 @@ int		main(int argc, char **argv)
 			ft_putstr("Invalid data in the file.\n");
 	}
 
-	
-	fill_the_initial_matrix(data, parsed_data);
+	data = fill_the_initial_matrix(parsed_data);
 
 	int i = 0;
 	int j = 0;
