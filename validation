@@ -1,7 +1,8 @@
-- defence from opening the directoty ?
-
+File handling block:
+- defence from opening the directoty
 - not existing file;
-- empty file;
+
+Input data:
 - not a number or space;
-- char '-';
+- empty file;
 - max value of the monitor dimension;
