@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 15:30:42 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 15:31:14 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		main(int argc, char **argv)
 	while (data[i])
 	{
 		j = 0;
-		while (j < 3)
+		while (j < 4)
 		{
 			ft_putnbr(data[i][j].x);
 			ft_putnbr(data[i][j].y);
