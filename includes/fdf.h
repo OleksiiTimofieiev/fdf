@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 11:55:24 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 13:30:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_coord
 {
 	int			x;
 	int			y;
+	int			z;
 }				t_coord;
 
 int				validation(char **data_file);
