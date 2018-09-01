@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 10:39:28 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:20:29 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 //TODO: parsing -> add to linked list;
 
-//TODO: validation with norm;
-
-// TODO: 1 dot; // broz to all sides;
+//TODO: 1 dot; // broz to all sides;
 
 
 
