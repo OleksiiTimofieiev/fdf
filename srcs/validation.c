@@ -6,13 +6,11 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:04:28 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 10:50:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:13:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-//TODO: size of the monitor
 
 static	void	place_stars(char *line, int *i, int *count)
 {
@@ -35,7 +33,7 @@ static	void	place_stars(char *line, int *i, int *count)
 	*count = 0;
 }
 
-char			*delete_colors_from_the_line(char *line)
+static	char	*delete_colors_from_the_line(char *line)
 {
 	int		i;
 	int		count;
@@ -106,4 +104,33 @@ int				validation(char **data_file)
 		i++;
 	}
 	return (1);
+}
+
+void			initialization(int **array, char **data_from_file, int i)
+{
+	int		j;
+	char	**parsed_data;
+	char	*before;
+	char	*after;
+	char	*buf;
+
+	j = 0;
+	buf = ft_strtrim(data_from_file[i]);
+	parsed_data = ft_strsplit(buf, ' ');
+	free(buf);
+	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
+	while (j < ft_2d_arr_size(parsed_data))
+	{
+		before = parsed_data[j];
+		array[i][j] = ft_atoi(parsed_data[j]);
+		after = ft_itoa(array[i][j++]);
+		if (!ft_strequ(before, after))
+		{
+			free(after);
+			exit(0);
+		}
+		free(after);
+	}
+	array[i][j] = INT_STOP;
+	ft_clean_2d_char(parsed_data);
 }

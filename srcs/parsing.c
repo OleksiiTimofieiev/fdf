@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 10:24:34 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:15:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,33 +54,12 @@ static char		*get_contents(char *filename)
 	return (data_from_file);
 }
 
-static void		initialization(int **array, char **data_from_file, int i)
+static	void	init(int *i, int *j, int *len, int *res)
 {
-	int		j;
-	char	**parsed_data;
-	char	*before;
-	char	*after;
-	char	*buf;
-
-	j = 0;
-	buf = ft_strtrim(data_from_file[i]);
-	parsed_data = ft_strsplit(buf, ' ');
-	free(buf);
-	array[i] = (int *)malloc(sizeof(int) * ft_strlen(data_from_file[i]) + 1);
-	while (j < ft_2d_arr_size(parsed_data))
-	{
-		before = parsed_data[j];
-		array[i][j] = ft_atoi(parsed_data[j]);
-		after = ft_itoa(array[i][j++]);
-		if (!ft_strequ(before, after))
-		{
-			free(after);
-			exit(0);
-		}
-		free(after);
-	}
-	array[i][j] = INT_STOP;
-	ft_clean_2d_char(parsed_data);
+	*i = 0;
+	*j = 0;
+	*len = 0;
+	*res = 0;
 }
 
 static	int		equality_of_rows(int **array)
@@ -89,10 +68,9 @@ static	int		equality_of_rows(int **array)
 	int	j;
 	int len;
 	int count;
+	int res;
 
-	i = 0;
-	j = 0;
-	len = 0;
+	init(&i, &j, &len, &res);
 	while (array[0][j++] != INT_STOP)
 		len++;
 	while (array[i])
@@ -102,13 +80,14 @@ static	int		equality_of_rows(int **array)
 		while (array[i][j] != INT_STOP)
 		{
 			count++;
-			j++;
+			res = (array[i][j++] > Y_LIMIT) ? 0 : 1;
 		}
-		if (count != len)
+		if (!res)
 			return (0);
+		res = (count != len) ? 0 : 1;
 		i++;
 	}
-	return (1);
+	return (res);
 }
 
 int				**transform_to_int(char *filename)
