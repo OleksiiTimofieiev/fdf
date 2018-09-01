@@ -6,14 +6,11 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/08/31 15:07:19 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/01 10:24:34 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-//TODO: size of the monitor
-
 
 static	void	open_the_file(int *fd, char *filename, char **data_from_file)
 {
@@ -93,18 +90,6 @@ static	int		equality_of_rows(int **array)
 	int len;
 	int count;
 
-	// i = 0;
-	// while(array[i])
-	// {
-	// 	j = 0;
-	// 	while(array[i][j] != INT_STOP)
-	// 	{
-	// 		ft_putnbr(array[i][j]);
-	// 		ft_putchar(' ');
-	// 			j++;
-	// 	}	
-	// 	i++;
-	// }
 	i = 0;
 	j = 0;
 	len = 0;
