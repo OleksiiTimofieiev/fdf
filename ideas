@@ -50,7 +50,24 @@ MLX features:
 - writing the char * to the screen;
 
 Bresenham's line algorithm:
+https://www.thecrazyprogrammer.com/2017/01/bresenhams-line-drawing-algorithm-c-c.html
+https://gamedev.ru/code/articles/faq_matrix_quat?page=4
+http://www.falloutsoftware.com/tutorials/dd/dd4.htm
+https://gist.github.com/bert/1085538
+https://stackoverflow.com/questions/32251437/please-explain-this-bresenham-line-drawing-code-for-me
+http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/
+http://www.roguebasin.com/index.php?title=Bresenham%27s_Line_Algorithm
+
+
 http://www.falloutsoftware.com/tutorials/dd/dd4.htm
 geeks
 tutorial: https://www.youtube.com/watch?v=5NV7HDI4xWk
 https://www.youtube.com/watch?v=p0PCdO9IWms
+
+
+
+
+
+
+future:
+https://medium.com/@behreajj/3d-rotations-in-processing-vectors-matrices-quaternions-10e2fed5f0a3
