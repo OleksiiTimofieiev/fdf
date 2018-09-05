@@ -7,10 +7,11 @@ SRCS		=  	./srcs/main.c \
 CFLAGS		= 	-Wall -Wextra -Werror
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a
-INC			= 	includes/
+
+INC			= 	./includes/fdf.h
 
 #colors
-RESET			= \033[m
+RESET		= \033[m
 RED         = \033[1;31m
 GREEN       = \033[01;38;05;46m
 YELLOW      = \033[01;38;05;226m
@@ -22,8 +23,8 @@ WHITE       = \033[01;38;05;15m
 all: $(NAME)
 	@echo  "$(YELLOW) : OK$(RESET)"
 
-$(NAME): $(LIB) $(OBJECTS)
-	@ gcc $(CFLAGS) -I$(INC) $(SRCS)  -L ./libft -lft -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): $(LIB) $(OBJECTS) $(INC)
+	@ gcc $(CFLAGS) -I$(INC) $(SRCS) -L ./libft -lft -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(LIB):
 	@echo  "$(GREEN)Compiling: $(WHITE)libft$(RESET)$(YELLOW) : $(RESET)\c)"
