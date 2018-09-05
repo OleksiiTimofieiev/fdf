@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 15:21:05 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:23:29 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // TODO: defines for colors;
 // TODO: сдвиг;
 
-void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr)
+void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr) // pass data[i][j];
 {
 	int w = x2 - x;
 	int h = y2 - y;
