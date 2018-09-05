@@ -19,4 +19,4 @@ int i = 0;
 	}
 
 
-	matrix with data has stop value;
+	matrix with data has stop value for row(INT_STOP) and a line(NULL);
