@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 14:02:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 14:07:45 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 // TODO: 1 dot; // broz to all sides;
 // TODO: esc -> exit 0
 // TODO: defines for colors;
+// TODO: сдвиг;
 
 void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr)
 {
@@ -65,7 +66,7 @@ void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr)
 	}
 }
 
-void print_initial(t_coord **data, void **mlx_ptr, void **win_ptr)
+void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
 {
 	int i = 0;
 	int j = 0;
@@ -76,11 +77,12 @@ void print_initial(t_coord **data, void **mlx_ptr, void **win_ptr)
 
 		while (data[i][j + 1].x != INT_STOP)
 		{
-			line((data[i][j].x + 20) * 10, (data[i][j].y + 20) * 10, (data[i][j + 1].x + 20)*10, (data[i][j + 1].y + 20) * 10, mlx_ptr, win_ptr);
+			line((data[i][j].x ) * 10, (data[i][j].y ) * 10, (data[i][j + 1].x ) * 10, (data[i][j + 1].y ) * 10, mlx_ptr, win_ptr);
 			j++;
 		}
 		i++;
 	}
+
 }
 
 
@@ -120,7 +122,7 @@ int		main(int argc, char **argv)
 	
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, 5120, 2880, "fdf");
-	print_initial(data, &mlx_ptr, &win_ptr);
+	print_row(data, &mlx_ptr, &win_ptr);
 	// line(0, 0, 100, 100, &mlx_ptr, &win_ptr);
 	mlx_loop(mlx_ptr);
 
