@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 16:24:44 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 16:31:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
 
 		while (data[i][j + 1].x != INT_STOP)
 		{
-			line((data[i][j].x) * STEP, (data[i][j].y + data[i][j].z) * STEP, (data[i][j + 1].x) * STEP, (data[i][j + 1].y + data[i][j + 1].z) * STEP, mlx_ptr, win_ptr);
+			line((data[i][j].x) * STEP, (data[i][j].y) * STEP + data[i][j].z, (data[i][j + 1].x) * STEP, (data[i][j + 1].y) * STEP + data[i][j + 1].z, mlx_ptr, win_ptr);
 			j++;
 		}
 		i++;
@@ -101,7 +101,7 @@ void print_column(t_coord **data, void **mlx_ptr, void **win_ptr)
 		i = 0;
 		while (data[j][i].x != INT_STOP)
 		{
-			line((data[j][i].x) * STEP, (data[j][i].y + data[j][i].z) * STEP, (data[j + 1][i].x) * STEP, (data[j + 1][i].y + data[j + 1][i].z) * STEP, mlx_ptr, win_ptr);
+			line((data[j][i].x) * STEP, (data[j][i].y) * STEP + data[j][i].z, (data[j + 1][i].x) * STEP, (data[j + 1][i].y) * STEP + data[j + 1][i].z, mlx_ptr, win_ptr);
 			i++;
 		}
 		j++;
@@ -125,24 +125,18 @@ int		main(int argc, char **argv)
 	mlx_ptr = mlx_init();
 	// mlx_clear_window(mlx_ptr, win_ptr);
 	win_ptr = mlx_new_window(mlx_ptr, 5120, 2880, "fdf");
-	// print_row(data, &mlx_ptr, &win_ptr);
-	// print_column(data, &mlx_ptr, &win_ptr);
+	print_row(data, &mlx_ptr, &win_ptr);
+	print_column(data, &mlx_ptr, &win_ptr);
 
-	line(5 * STEP, 5 * STEP, 10 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
-	line(5 * STEP, 5 * STEP, 10 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
-	line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
-	line(5 * STEP, 5 * STEP, 5 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
-
-	line(5 * STEP, 5 * STEP, 15 * STEP, -5 * STEP, &mlx_ptr, &win_ptr);
-	
-	line(5 * STEP, 5 * STEP, -10 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
-
-	
-	line(5 * STEP, 5 * STEP, -15 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
-
-	line(5 * STEP, 5 * STEP, -15 * STEP, 25 * STEP, &mlx_ptr, &win_ptr);
-
-	line(5 * STEP, 5 * STEP, -15 * STEP, 15 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, 10 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, 10 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, 5 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, 15 * STEP, -5 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, -10 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, -15 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, -15 * STEP, 25 * STEP, &mlx_ptr, &win_ptr);
+	// line(5 * STEP, 5 * STEP, -15 * STEP, 15 * STEP, &mlx_ptr, &win_ptr);
 
 
 	mlx_loop(mlx_ptr);
