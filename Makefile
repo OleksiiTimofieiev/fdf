@@ -23,7 +23,7 @@ all: $(NAME)
 	@echo  "$(YELLOW) : OK$(RESET)"
 
 $(NAME): $(LIB) $(OBJECTS)
-	@ gcc $(CFLAGS) -I$(INC) $(SRCS) -L ./libft -lft -o $(NAME)
+	@ gcc $(CFLAGS) -I$(INC) $(SRCS)  -L ./libft -lft -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(LIB):
 	@echo  "$(GREEN)Compiling: $(WHITE)libft$(RESET)$(YELLOW) : $(RESET)\c)"
