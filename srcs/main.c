@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 16:01:08 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 16:24:44 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,18 @@ int		main(int argc, char **argv)
 	line(5 * STEP, 5 * STEP, 10 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
 	line(5 * STEP, 5 * STEP, 10 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
 	line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
-	line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
+	line(5 * STEP, 5 * STEP, 5 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
+
+	line(5 * STEP, 5 * STEP, 15 * STEP, -5 * STEP, &mlx_ptr, &win_ptr);
+	
+	line(5 * STEP, 5 * STEP, -10 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
+
+	
+	line(5 * STEP, 5 * STEP, -15 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
+
+	line(5 * STEP, 5 * STEP, -15 * STEP, 25 * STEP, &mlx_ptr, &win_ptr);
+
+	line(5 * STEP, 5 * STEP, -15 * STEP, 15 * STEP, &mlx_ptr, &win_ptr);
 
 
 	mlx_loop(mlx_ptr);
