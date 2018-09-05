@@ -63,7 +63,6 @@ http://www.falloutsoftware.com/tutorials/dd/dd4.htm
 geeks
 tutorial: https://www.youtube.com/watch?v=5NV7HDI4xWk
 https://www.youtube.com/watch?v=p0PCdO9IWms
-<<<<<<< HEAD
 
 
 
@@ -72,7 +71,6 @@ https://www.youtube.com/watch?v=p0PCdO9IWms
 
 future:
 https://medium.com/@behreajj/3d-rotations-in-processing-vectors-matrices-quaternions-10e2fed5f0a3
-=======
 Конкретно для FDF нужно читать про "векторное произведение"
 - https://www.youtube.com/watch?time_continue=2&v=KHuI9bXZS74
 - https://www.youtube.com/watch?v=-dGi2Ffdiuk&feature=youtu.be
@@ -83,4 +81,3 @@ https://habrahabr.ru/post/131931/
 https://habrahabr.ru/post/243011/
 https://habrahabr.ru/post/248153/
 http://grafika.me/node/82
->>>>>>> a6b82a36f1428c6d3c2f34b2e1e8a4767e9c8cbf

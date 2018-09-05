@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 11:32:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 13:41:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define FDF_H
 # define INT_STOP 777
 # define Y_LIMIT 2000
+# define STEP 20
 
 # include <stdio.h>
 # include <fcntl.h>
+#include <math.h>
 # include "../libft/libft.h"
 # include <mlx.h>
 
