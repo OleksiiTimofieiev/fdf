@@ -6,13 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 15:31:14 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 10:49:02 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-//TODO: parsing -> add to linked list;
+//TODO: parsing -> add stop value;
 
 //TODO: 1 dot; // broz to all sides;
 
@@ -90,7 +90,7 @@ int		main(int argc, char **argv)
 	while (data[i])
 	{
 		j = 0;
-		while (j < 4)
+		while (j < 3)
 		{
 			ft_putnbr(data[i][j].x);
 			ft_putnbr(data[i][j].y);
