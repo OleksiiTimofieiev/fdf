@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 15:26:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 16:01:08 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,10 +125,15 @@ int		main(int argc, char **argv)
 	mlx_ptr = mlx_init();
 	// mlx_clear_window(mlx_ptr, win_ptr);
 	win_ptr = mlx_new_window(mlx_ptr, 5120, 2880, "fdf");
-	print_row(data, &mlx_ptr, &win_ptr);
-	print_column(data, &mlx_ptr, &win_ptr);
+	// print_row(data, &mlx_ptr, &win_ptr);
+	// print_column(data, &mlx_ptr, &win_ptr);
 
-	// line(0, 0, 0, 10, &mlx_ptr, &win_ptr);
+	line(5 * STEP, 5 * STEP, 10 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
+	line(5 * STEP, 5 * STEP, 10 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
+	line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
+	line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
+
+
 	mlx_loop(mlx_ptr);
 
 	// mlx_new_window - clear(for refresh) - destroy(create bigger window),
