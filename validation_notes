@@ -3,6 +3,7 @@ File handling block:
 - not existing file;
 
 Input data:
+- invalid atoi value;
 - not a number or space;
 - empty file;
 - empty line in the start, middle or end;
