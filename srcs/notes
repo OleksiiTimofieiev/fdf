@@ -17,3 +17,6 @@
 	// 	ft_putchar('\n');
 	// 	i++;
 	// }
+
+
+	matrix with data has stop value;
