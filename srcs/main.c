@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 14:38:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:21:05 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
 
 		while (data[i][j + 1].x != INT_STOP)
 		{
-			line((data[i][j].x ) * STEP, (data[i][j].y ) * STEP, (data[i][j + 1].x ) * STEP, (data[i][j + 1].y ) * STEP, mlx_ptr, win_ptr);
+			line((data[i][j].x) * STEP, (data[i][j].y + data[i][j].z) * STEP, (data[i][j + 1].x) * STEP, (data[i][j + 1].y + data[i][j + 1].z) * STEP, mlx_ptr, win_ptr);
 			j++;
 		}
 		i++;
@@ -87,19 +87,22 @@ void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
 
 void print_column(t_coord **data, void **mlx_ptr, void **win_ptr)
 {
-	int i = 0;
 	int j = 0;
+	int i = 0;
 
-	while (data[i])
+	int length = 0;
+	while(data[length])
+		length++;
+	
+	while(j < length - 1)
 	{
-		j = 0;
-
-		while (j < 3)
+		i = 0;
+		while (data[j][i].x != INT_STOP)
 		{
-			line((data[i][j].y) , (data[i][j].x), (data[i][j + 1].y) , (data[i][j + 1].x) , mlx_ptr, win_ptr);
-			j++;
+			line((data[j][i].x) * STEP, (data[j][i].y + data[j][i].z) * STEP, (data[j + 1][i].x) * STEP, (data[j + 1][i].y + data[j + 1][i].z) * STEP, mlx_ptr, win_ptr);
+			i++;
 		}
-		i++;
+		j++;
 	}
 }
 
@@ -115,34 +118,15 @@ int		main(int argc, char **argv)
 	if (argc == 2)
 		(!(parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
 	(parsed_data) ? data = fill_the_initial_matrix(parsed_data) : exit(0);
-	// int i = 0;
-	// int j = 0;
 
-	// if (!data)
-	// 	ft_putstr("here\n");
-	// while (data[i])
-	// {
-	// 	j = 0;
-	// 	while (data[i][j].x != INT_STOP)
-	// 	{
-	// 		ft_putnbr(data[i][j].x);
-	// 		ft_putnbr(data[i][j].y);
-	// 		ft_putnbr(data[i][j].z);
-	// 		ft_putchar(32);
-	// 		j++;
-	// 	}
-	// 	ft_putchar('\n');
-	// 	i++;
-	// }
-	// mlx_block;
 	
 	mlx_ptr = mlx_init();
 	// mlx_clear_window(mlx_ptr, win_ptr);
 	win_ptr = mlx_new_window(mlx_ptr, 5120, 2880, "fdf");
 	print_row(data, &mlx_ptr, &win_ptr);
-	// print_column(data, &mlx_ptr, &win_ptr);
+	print_column(data, &mlx_ptr, &win_ptr);
 
-	// line(0, 0, 100, 100, &mlx_ptr, &win_ptr);
+	// line(0, 0, 0, 10, &mlx_ptr, &win_ptr);
 	mlx_loop(mlx_ptr);
 
 	// mlx_new_window - clear(for refresh) - destroy(create bigger window),

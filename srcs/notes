@@ -1,22 +1,23 @@
-int i = 0;
-	int j = 0;
+	// int i = 0;
+	// int j = 0;
 
-	if(!data)
-		ft_putstr("here\n");
-	while (data[i])
-	{
-		j = 0;
-		while (data[i][j].x != INT_STOP)
-		{
-			ft_putnbr(data[i][j].x);
-			ft_putnbr(data[i][j].y);
-			ft_putnbr(data[i][j].z);
-			ft_putchar(32);
-			j++;
-		}
-		ft_putchar('\n');
-		i++;
-	}
+	// if (!data)
+	// 	ft_putstr("here\n");
+	// while (data[i])
+	// {
+	// 	j = 0;
+	// 	while (data[i][j].x != INT_STOP)
+	// 	{
+	// 		ft_putnbr(data[i][j].x);
+	// 		ft_putnbr(data[i][j].y);
+	// 		ft_putnbr(data[i][j].z);
+	// 		ft_putchar(32);
+	// 		j++;
+	// 	}
+	// 	ft_putchar('\n');
+	// 	i++;
+	// }
+	// mlx_block;
 
 
 	matrix with data has stop value for row(INT_STOP) and a line(NULL);
