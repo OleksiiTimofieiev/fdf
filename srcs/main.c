@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 15:23:29 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:26:43 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // TODO: defines for colors;
 // TODO: сдвиг;
 
-void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr) // pass data[i][j];
+void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr) // TODO:pass data[i][j];
 {
 	int w = x2 - x;
 	int h = y2 - y;
@@ -70,6 +70,8 @@ void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
 {
 	int i = 0;
 	int j = 0;
+
+	// TODO: intermidiate struct will be passed;
 
 	while (data[i])
 	{
@@ -131,7 +133,7 @@ int		main(int argc, char **argv)
 
 	// mlx_new_window - clear(for refresh) - destroy(create bigger window),
 
-		system("leaks -q fdf");
+	system("leaks -q fdf");
 
 	return (0);
 }
