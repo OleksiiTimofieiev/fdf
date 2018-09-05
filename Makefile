@@ -2,7 +2,8 @@ NAME		= fdf
 
 SRCS		=  	./srcs/main.c \
 				./srcs/parsing.c \
-				./srcs/validation.c 
+				./srcs/validation.c \
+				./srcs/fill_initial_matrix.c
 CFLAGS		= 	-Wall -Wextra -Werror
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a

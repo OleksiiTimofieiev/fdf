@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/01 13:30:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/05 11:08:26 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@
 
 typedef struct	s_coord
 {
-	int			x;
-	int			y;
-	int			z;
+	double		x;
+	double		y;
+	double		z;
+	double		color;
 }				t_coord;
 
 int				validation(char **data_file);
 void			initialization(int **array, char **data_from_file, int i);
 int				**transform_to_int(char *filename);
+t_coord			**fill_the_initial_matrix(int **parsed_data);
 
 #endif
