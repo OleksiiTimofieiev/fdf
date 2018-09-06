@@ -6,11 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:54:24 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:55:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+// TODO: type of x and y;
 
 // typedef	struct	s_buf
 // {
@@ -54,6 +56,7 @@ void	line(t_g ** g, int i, int j)
 		dx2 = -1;
 	else if (buf.w > 0)
 		dx2 = 1;
+		
 	int longest = abs(buf.w);
 	int shortest = abs(buf.h);
 	
