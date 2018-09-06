@@ -7,7 +7,8 @@ SRCS		=  	./srcs/main.c \
 				./srcs/init.c \
 				./srcs/print.c \
 				./srcs/draw_line.c \
-				./srcs/rotation.c
+				./srcs/rotation.c \
+				./srcs/keyboard_management.c
 CFLAGS		= 	-Wall -Wextra -Werror
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a
