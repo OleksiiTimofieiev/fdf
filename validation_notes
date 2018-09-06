@@ -1,6 +1,7 @@
 File handling block:
 - defence from opening the directoty;
 - not existing file;
+- no arguments;
 
 Input data:
 - invalid atoi value;
@@ -10,3 +11,6 @@ Input data:
 - max value of the monitor dimension;
 - no tabs as separator;
 - y not more then 2.000; in orde to have all pixels on the monitor;
+
+Colors parsing:
+- types of colors (direct equation);
