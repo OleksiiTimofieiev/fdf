@@ -6,14 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 22:10:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:16:28 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 // TODO: leaks put image;
-// TODO: parsing;
 // TODO: parsing of colors;
 // TODO: leaks on each step;
 // TODO: ?: printing according to the color of each element;
@@ -37,6 +36,6 @@ int		main(int argc, char **argv)
 		mlx_loop(g.mlx_ptr);
 	}
 	else
-		ft_putstr("Input error.\n");
+		ft_putstr("Bad input.\n");
 	return (0);
 }
