@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 20:12:19 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 20:19:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void				print(t_g *g);
 void				line(t_g **g, int i, int j, int type_of_vector);
 void				rotate(int key, t_g **g);
 int					deal_with_keyboard(int key, t_g *g);
+int					size_double(int **array);
 
 #endif

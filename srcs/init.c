@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:49:35 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 19:44:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 20:19:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,14 @@ int		len_max(int **array)
 		i++;
 	}
 	return (len);
+}
+
+int		size_double(int **array)
+{
+	int i;
+
+	i = 0;
+	while (array[i])
+		i++;
+	return (i);
 }
