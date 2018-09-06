@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:18:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:30:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ static void	lin(t_g **g, t_buf *buf, int j, int i)
 	buf->iterator = 0;
 }
 
-static void	set_deviation(t_buf *buf)
+static void	set_deviation(t_buf *buf, int *c)
 {
+	*c = 0;
 	if (buf->w < 0)
 		buf->dx1 = -1;
 	else if (buf->w > 0)
@@ -80,10 +81,10 @@ static void	set_longest_shortest_numerator(t_buf *buf)
 void		line(t_g **g, int i, int j, int type_of_vector)
 {
 	t_buf	buf;
-	int c = 0;
+	int		c;
 
 	(type_of_vector == TYPE_V_ROW) ? row(g, &buf, i, j) : lin(g, &buf, j, i);
-	set_deviation(&buf);
+	set_deviation(&buf, &c);
 	set_longest_shortest_numerator(&buf);
 	while (buf.iterator <= buf.longest)
 	{
