@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 16:50:51 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:07:25 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,30 @@ void	rotate_z(t_g *g, double corner)
 
 // TODO: 1 dot; // broz to all sides;
 // TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
-// TODO: default angle;
 // TODO: info blocks;
 // TODO: clean all possible leaks;
-// TODO: press any button;
 // TODO: parse color;
 // TODO: leaks;
 
-void	change_color(int key, t_g **g)
-{}
+void	rotate(int key, t_g **g)
+{
 
-	ft_putstr("wtf\n");
+	double buf = 0;
+
+	if (key == 49)
+		buf = 0.05;
+	else if (key == 36)
+		buf = -0.05;
+
+	rotate_x(*g, buf);
+	rotate_y(*g, buf);
+	rotate_z(*g, buf);
+}
+
+void	change_color(int key, t_g **g)
+{
+	if (key == 12)
 		(*g)->color = BLUE_COLOR;
-	}
 	else if (key == 13)
 		(*g)->color = YELLOW_COLOR;
 	else if (key == 14)
@@ -100,41 +111,42 @@ void	change_color(int key, t_g **g)
 		(*g)->color = INIT_COLOR;
 }
 
-int		deal(int key, t_g *g) // aTODO:rray of function pointers
+void	change_position(int key, t_g **g)
 {
-	change_color(key, &g);
-	
 	if (key == 126)
-		g->correction_y -= MOV_SCALE;
+		(*g)->correction_y -= MOV_SCALE;
 	else if (key == 125)
-		g->correction_y += MOV_SCALE;
+		(*g)->correction_y += MOV_SCALE;
 	else if (key == 123)
-		g->correction_x -= MOV_SCALE;
+		(*g)->correction_x -= MOV_SCALE;
 	else if (key == 124)
-		g->correction_x += MOV_SCALE;
-	else if (key == 69)
-	{
-			rotate_x(g, 0.05);
-			rotate_y(g, 0.05);
-			rotate_z(g, 0.05);
-	}
+		(*g)->correction_x += MOV_SCALE;
+}
+
+void	change_scale(int key, t_g **g)
+{
+	if (key == 69)
+		(*g)->step += SCALE;
 	else if (key == 78)
-		g->step -= SCALE;
-	else if (key == 53)
+		(*g)->step -= SCALE;
+}
+
+int		deal(int key, t_g *g)
+{
+	if (key == 53)
 	{
 		mlx_destroy_window(g->mlx_ptr, g->win_ptr);
 		exit(1);
 		return(0);
 	}
-	else
-		g->color = INIT_COLOR;
-	mlx_clear_window(g->mlx_ptr, g->win_ptr);
+	change_color(key, &g);
+	change_position(key, &g);
+	change_scale(key, &g);
+	rotate(key, &g);
+		mlx_clear_window(g->mlx_ptr, g->win_ptr);
 	print(g);
 	return (0);
 }
-
-
-
 
 
 int main(int argc, char **argv)
