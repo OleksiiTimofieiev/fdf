@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:03:24 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:25:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,24 @@ void	init_data_for_drawing_row(t_g ** g, t_buf *buf, int i, int j)
 	
 }
 
+void	set_deviation(t_buf * buf)
+{
+	if (buf->w < 0)
+		buf->dx1 = -1;
+	else if (buf->w > 0)
+		buf->dx1 = 1;
+		
+	if (buf->h < 0)
+		buf->dy1 = -1;
+	else if (buf->h > 0)
+		buf->dy1 = 1;
+		
+	if (buf->w < 0)
+		buf->dx2 = -1;
+	else if (buf->w > 0)
+		buf->dx2 = 1;
+}
+
 void	line(t_g ** g, int i, int j)
 {	
 	t_buf	buf;
@@ -48,20 +66,7 @@ void	line(t_g ** g, int i, int j)
 	// TODO: if for dependency of the function;
 	init_data_for_drawing_row(g, &buf, i, j);
 
-	if (buf.w < 0)
-		buf.dx1 = -1;
-	else if (buf.w > 0)
-		buf.dx1 = 1;
-		
-	if (buf.h < 0)
-		buf.dy1 = -1;
-	else if (buf.h > 0)
-		buf.dy1 = 1;
-		
-	if (buf.w < 0)
-		buf.dx2 = -1;
-	else if (buf.w > 0)
-		buf.dx2 = 1;
+	set_deviation(&buf);
 		
 	buf.longest = abs(buf.w);
 	buf.shortest = abs(buf.h);
