@@ -6,18 +6,22 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:56:41 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 13:01:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	init_data_for_drawing_row(t_g **g, t_buf *buf, int i, int j)
+void	row(t_g **g, t_buf *buf, int i, int j)
 {
 	buf->x = (*g)->data[i][j].x * (*g)->step;
-	buf->y = (*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z;
-	buf->w = ((*g)->data[i][j + 1].x * (*g)->step) - ((*g)->data[i][j].x * (*g)->step);
-	buf->h = ((*g)->data[i][j + 1].y * (*g)->step + (*g)->data[i][j + 1].z) - ((*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z);
+	buf->y = (*g)->data[i][j].y * (*g)->step +
+	(*g)->data[i][j].z;
+	buf->w = ((*g)->data[i][j + 1].x * (*g)->step)
+	- ((*g)->data[i][j].x * (*g)->step);
+	buf->h = ((*g)->data[i][j + 1].y * (*g)->step
+	+ (*g)->data[i][j + 1].z) - ((*g)->data[i][j].y *
+	(*g)->step + (*g)->data[i][j].z);
 	buf->dx1 = 0;
 	buf->dx2 = 0;
 	buf->dy1 = 0;
@@ -25,12 +29,16 @@ void	init_data_for_drawing_row(t_g **g, t_buf *buf, int i, int j)
 	buf->iterator = 0;
 }
 
-void	init_data_for_drawing_line(t_g **g, t_buf *buf, int j, int i)
+void	lin(t_g **g, t_buf *buf, int j, int i)
 {
 	buf->x = (*g)->data[j][i].x * (*g)->step;
-	buf->y = (*g)->data[j][i].y * (*g)->step + (*g)->data[j][i].z;
-	buf->w = ((*g)->data[j + 1][i].x * (*g)->step) - ((*g)->data[j][i].x * (*g)->step);
-	buf->h = ((*g)->data[j + 1][i].y * (*g)->step + (*g)->data[j + 1][i].z) - ((*g)->data[j][i].y * (*g)->step + (*g)->data[j][i].z);
+	buf->y = (*g)->data[j][i].y * (*g)->step +
+	(*g)->data[j][i].z;
+	buf->w = ((*g)->data[j + 1][i].x * (*g)->step) -
+	((*g)->data[j][i].x * (*g)->step);
+	buf->h = ((*g)->data[j + 1][i].y * (*g)->step +
+	(*g)->data[j + 1][i].z) - ((*g)->data[j][i].y *
+	(*g)->step + (*g)->data[j][i].z);
 	buf->dx1 = 0;
 	buf->dx2 = 0;
 	buf->dy1 = 0;
@@ -74,16 +82,14 @@ void	set_longest_shortest_numerator(t_buf *buf)
 void	line(t_g **g, int i, int j, int type_of_vector)
 {
 	t_buf	buf;
-	
-	if (type_of_vector == TYPE_V_ROW)
-		init_data_for_drawing_row(g, &buf, i, j);
-	else
-		init_data_for_drawing_line(g, &buf, j, i);
+
+	(type_of_vector == TYPE_V_ROW) ? row(g, &buf, i, j) : lin(g, &buf, j, i);
 	set_deviation(&buf);
 	set_longest_shortest_numerator(&buf);
 	while (buf.iterator <= buf.longest)
 	{
-		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x, buf.y, 0xFFFFFF); // TODO: color;
+		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x,
+		buf.y, 0xFFFFFF); // TODO: color;
 		buf.numerator += buf.shortest;
 		if (!(buf.numerator < buf.longest))
 		{
