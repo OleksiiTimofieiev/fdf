@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:28:07 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:39:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void			initialization(int **array, char **data_from_file, int i);
 int				**transform_to_int(char *filename);
 t_coord			**fill_the_initial_matrix(int **parsed_data);
 void			print(t_g *g);
-void			line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr); // TODO:pass data[i][j];
+void			line(t_g **g, int i, int j); // TODO:pass data[i][j];
 
 #endif
