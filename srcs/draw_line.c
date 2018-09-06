@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:37:27 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:40:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	line(t_g **g, int i, int j, int type_of_vector)
 {
 	t_buf	buf;
 	
-	if (type_of_vector == ROW)
+	if (type_of_vector == TYPE_V_ROW)
 		init_data_for_drawing_row(g, &buf, i, j);
 	set_deviation(&buf);
 	set_longest_shortest_numerator(&buf);

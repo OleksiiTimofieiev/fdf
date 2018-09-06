@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:37:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:38:15 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # define STEP_BASE 50
 # define MONITOR_WIDTH 5120
 # define MONITOR_HEIGHT 2880
-# define ROW 1
+# define TYPE_V_ROW 1
+# define TYPE_V_LINE 0
 
 # include <stdio.h>
 # include <fcntl.h>
