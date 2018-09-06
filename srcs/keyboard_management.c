@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 17:13:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:52:27 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:47:52 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ static	void	navigation(t_g **g)
 
 static	void	change_color(int key, t_g **g)
 {
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
 	if (key == 12)
 		(*g)->color = BLUE_COLOR;
 	else if (key == 13)
@@ -44,6 +49,16 @@ static	void	change_color(int key, t_g **g)
 		(*g)->color = MAGENTA_COLOR;
 	else if (key == 15)
 		(*g)->color = GREEN_COLOR;
+	while ((*g)->data[i])
+	{
+		j = 0;
+		while ((*g)->data[i][j].x != INT_STOP)
+		{
+			(*g)->data[i][j].color = (*g)->color;
+			j++;
+		}
+		i++;
+	}
 }
 
 static	void	change_position(int key, t_g **g)

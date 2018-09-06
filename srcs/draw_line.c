@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 22:41:31 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:43:02 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	row(t_g **g, t_buf *buf, int i, int j)
 	buf->dy1 = 0;
 	buf->dy2 = 0;
 	buf->iterator = 0;
-	buf->color = (*g)->color;
+	buf->color = (*g)->data[i][j].color;
 }
 
 static void	lin(t_g **g, t_buf *buf, int j, int i)
@@ -44,6 +44,7 @@ static void	lin(t_g **g, t_buf *buf, int j, int i)
 	buf->dy2 = 0;
 	buf->iterator = 0;
 	buf->color = (*g)->color;
+	buf->color = (*g)->data[j][i].color;
 }
 
 static void	set_deviation(t_buf *buf, int *c)
