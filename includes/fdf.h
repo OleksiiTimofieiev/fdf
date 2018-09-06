@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:52:38 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:31:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef	struct	s_buf
 	int			longest;
 	int			shortest;
 	int			numerator;
+	int			iterator;
 }				t_buf;
 
 void			init_g(t_g *g);

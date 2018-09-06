@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:27:40 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:32:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_data_for_drawing_row(t_g ** g, t_buf *buf, int i, int j)
 	buf->dx2 = 0;
 	buf->dy1 = 0;
 	buf->dy2 = 0;
+	buf->iterator = 0;
 	
 	
 }
@@ -59,7 +60,9 @@ void	set_deviation(t_buf * buf)
 
 void	set_longest_shortest(t_buf * buf)
 {
-		if (!(buf->longest > buf->shortest))
+	buf->longest = abs(buf->w);
+	buf->shortest = abs(buf->h);
+	if (!(buf->longest > buf->shortest))
 	{
 		buf->longest = abs(buf->h);
 		buf->shortest = abs(buf->w);
@@ -78,15 +81,9 @@ void	line(t_g ** g, int i, int j)
 	// TODO: if for dependency of the function;
 	init_data_for_drawing_row(g, &buf, i, j);
 	set_deviation(&buf);
-		
-	buf.longest = abs(buf.w);
-	buf.shortest = abs(buf.h);
-	
 	set_longest_shortest(&buf);
-
 	buf.numerator = buf.longest >> 1;
-
-	for (int i = 0; i <= buf.longest; i++)
+	while (buf.iterator <= buf.longest)
 	{
 		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x, buf.y, 0xFFFFFF);
 		buf.numerator += buf.shortest;
@@ -101,5 +98,6 @@ void	line(t_g ** g, int i, int j)
 			buf.x += buf.dx2;
 			buf.y += buf.dy2;
 		}
+		buf.iterator++;
 	}
 }
