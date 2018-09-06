@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:18:08 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:28:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@
 
 int main(int argc, char **argv)
 {
-	t_general	general;
+	t_g	g;
 	
-	init_general(&general);
+	init_g(&g);
 	if (argc == 2)
-		(!(general.parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
-	(general.parsed_data) ? general.data = fill_the_initial_matrix(general.parsed_data) : exit(0); // TODO: func for exit;
+		(!(g.parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
+	(g.parsed_data) ? g.data = fill_the_initial_matrix(g.parsed_data) : exit(0); // TODO: func for exit;
 	
-	general.mlx_ptr = mlx_init();
-	general.win_ptr = mlx_new_window(general.mlx_ptr, MONITOR_WIDTH, MONITOR_HEIGHT, "fdf");
+	g.mlx_ptr = mlx_init();
+	g.win_ptr = mlx_new_window(g.mlx_ptr, MONITOR_WIDTH, MONITOR_HEIGHT, "fdf");
 
-	print(&general);
+	print(&g);
 
 
 	
-	mlx_loop(general.mlx_ptr);
+	mlx_loop(g.mlx_ptr);
 
 
 

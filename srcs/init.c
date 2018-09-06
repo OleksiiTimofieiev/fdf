@@ -6,17 +6,17 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:49:35 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 10:55:50 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:28:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	init_general(t_general *general)
+void	init_g(t_g *g)
 {
-	general->data = NULL;
-	general->parsed_data = NULL;
-	general->mlx_ptr = NULL;
-	general->win_ptr = NULL;
-	general->step = STEP_BASE;
+	g->data = NULL;
+	g->parsed_data = NULL;
+	g->mlx_ptr = NULL;
+	g->win_ptr = NULL;
+	g->step = STEP_BASE;
 }

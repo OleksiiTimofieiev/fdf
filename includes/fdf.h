@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:19:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:28:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ typedef struct	s_coord
 	double		color;
 }				t_coord;
 
-typedef	struct	s_general
+typedef	struct	s_g
 {
 	int			**parsed_data;
 	t_coord		**data;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			step;
-}				t_general;
+}				t_g;
 
-void			init_general(t_general *general);
+void			init_g(t_g *g);
 int				validation(char **data_file);
 void			initialization(int **array, char **data_from_file, int i);
 int				**transform_to_int(char *filename);
 t_coord			**fill_the_initial_matrix(int **parsed_data);
-void			print(t_general *general);
+void			print(t_g *g);
 void			line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr); // TODO:pass data[i][j];
 
 #endif
