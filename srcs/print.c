@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:53:56 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:54:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 13:02:32 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,7 @@ static void	print_column(t_g *g)
 	{
 		i = 0;
 		while (g->data[j][i].x != INT_STOP)
-		{
 			line(&g, i++, j, TYPE_V_LINE);
-			
-			// line(,
-			// ,
-			// ,
-			// ,
-			// &g->mlx_ptr, &g->win_ptr);
-		}
 		j++;
 	}
 }
