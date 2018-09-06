@@ -6,28 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:33:56 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:37:27 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-// TODO: type of x and y;
-
-// typedef	struct	s_buf
-// {
-// 	int			w;
-// 	int			h;
-// 	int			dx1;
-// 	int			dy1; 
-// 	int			dx2;
-// 	int			dy2;
-// 	int			longest;
-// 	int			shortest;
-// 	int			numerator;
-// }				t_buf;
-
-void	init_data_for_drawing_row(t_g ** g, t_buf *buf, int i, int j)
+void	init_data_for_drawing_row(t_g **g, t_buf *buf, int i, int j)
 {
 	buf->x = (*g)->data[i][j].x * (*g)->step;
 	buf->y = (*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z;
@@ -38,11 +23,9 @@ void	init_data_for_drawing_row(t_g ** g, t_buf *buf, int i, int j)
 	buf->dy1 = 0;
 	buf->dy2 = 0;
 	buf->iterator = 0;
-	
-	
 }
 
-void	set_deviation(t_buf * buf)
+void	set_deviation(t_buf *buf)
 {
 	if (buf->w < 0)
 		buf->dx1 = -1;
@@ -58,7 +41,7 @@ void	set_deviation(t_buf * buf)
 		buf->dx2 = 1;
 }
 
-void	set_longest_shortest_numerator(t_buf * buf)
+void	set_longest_shortest_numerator(t_buf *buf)
 {
 	buf->longest = abs(buf->w);
 	buf->shortest = abs(buf->h);
@@ -75,12 +58,12 @@ void	set_longest_shortest_numerator(t_buf * buf)
 	buf->numerator = buf->longest >> 1;
 }
 
-void	line(t_g ** g, int i, int j)
-{	
+void	line(t_g **g, int i, int j, int type_of_vector)
+{
 	t_buf	buf;
-
-	// TODO: if for dependency of the function;
-	init_data_for_drawing_row(g, &buf, i, j);
+	
+	if (type_of_vector == ROW)
+		init_data_for_drawing_row(g, &buf, i, j);
 	set_deviation(&buf);
 	set_longest_shortest_numerator(&buf);
 	while (buf.iterator <= buf.longest)

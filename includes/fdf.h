@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:31:59 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:37:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define STEP_BASE 50
 # define MONITOR_WIDTH 5120
 # define MONITOR_HEIGHT 2880
+# define ROW 1
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -64,6 +65,6 @@ void			initialization(int **array, char **data_from_file, int i);
 int				**transform_to_int(char *filename);
 t_coord			**fill_the_initial_matrix(int **parsed_data);
 void			print(t_g *g);
-void			line(t_g **g, int i, int j);
+void			line(t_g **g, int i, int j, int type_of_vector);
 
 #endif
