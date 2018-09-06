@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 13:53:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 14:18:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # define INT_STOP 777
 # define Y_LIMIT 2000
-# define INIT_BASE 50
+# define INIT_SCALE 20
+
+# define INIT_CORRECTION_X 1100
+# define INIT_CORRECTION_Y 600
 
 # define INIT_COLOR 0xFFFFFF
 # define BLUE_COLOR 0x0000FF
@@ -49,6 +52,8 @@ typedef	struct	s_g
 	void		*win_ptr;
 	int			step;
 	int			color;
+	int			correction_x;
+	int			correction_y;	
 }				t_g;
 
 typedef	struct	s_buf
