@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 14:26:47 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 14:55:14 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define MONITOR_HEIGHT 2880
 # define TYPE_V_ROW 1
 # define TYPE_V_LINE 0
+
+# define MOV_SCALE 10
 
 # include <stdio.h>
 # include <fcntl.h>

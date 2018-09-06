@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 14:48:42 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:00:15 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 // TODO: MATRIX of rotation;
 // TODO: info blocks;
 
-int	deal_with_color(int key, t_g *param)
+int	deal(int key, t_g *param) // aTODO:rray of function pointers
 {
 	if (key == 12)
 		param->color = BLUE_COLOR;
@@ -30,12 +30,19 @@ int	deal_with_color(int key, t_g *param)
 		param->color = MAGENTA_COLOR;
 	else if (key == 15)
 		param->color = INIT_COLOR;
+	else if (key == 126)
+		param->correction_y -= MOV_SCALE;
+	else if (key == 125)
+		param->correction_y += MOV_SCALE;
+	else if (key == 123)
+		param->correction_x -= MOV_SCALE;
+	else if (key == 124)
+		param->correction_x += MOV_SCALE;
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	print(param);
-	
-	
 	return (0);
 }
+
 
 int main(int argc, char **argv)
 {
@@ -53,7 +60,8 @@ int main(int argc, char **argv)
 	print(&g);
 	
 
-	mlx_key_hook(g.win_ptr, deal_with_color, &g);
+	mlx_key_hook(g.win_ptr, deal, &g);
+	
 	mlx_loop(g.mlx_ptr);
 
 
