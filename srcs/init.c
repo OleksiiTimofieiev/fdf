@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:49:35 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 21:58:50 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:23:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	check_line(char **line, int fd)
 		free(*line);
 }
 
-void check_tmp(char **tmp, int fd)
+void	check_tmp(char **tmp, int fd)
 {
 	if (!(*tmp))
 	{
