@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:53:43 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:23:13 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define INT_STOP 777
 # define Y_LIMIT 2000
-# define INIT_SCALE 20
+# define INIT_SCALE 5
 # define SCALE 5
 
 # define INIT_CORRECTION_X 1100
@@ -31,7 +31,7 @@
 # define TYPE_V_ROW 1
 # define TYPE_V_LINE 0
 
-# define MOV_SCALE 10
+# define MOV_SCALE 50
 
 # include <stdio.h>
 # include <fcntl.h>

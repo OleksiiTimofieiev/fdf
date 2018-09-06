@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 16:14:04 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:26:58 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,9 @@ int	deal(int key, t_g *g) // aTODO:rray of function pointers
 	else
 		g->color = INIT_COLOR;
 	mlx_clear_window(g->mlx_ptr, g->win_ptr);
+
 	print(g);
+	
 	return (0);
 }
 
