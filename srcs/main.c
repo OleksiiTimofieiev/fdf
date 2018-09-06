@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:11:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:14:41 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,9 @@ int main(int argc, char **argv)
 	(general.parsed_data) ? general.data = fill_the_initial_matrix(general.parsed_data) : exit(0); // TODO: func for exit;
 	
 	general.mlx_ptr = mlx_init();
-	general.win_ptr = mlx_new_window(general.mlx_ptr, 5120, 2880, "fdf");
+	general.win_ptr = mlx_new_window(general.mlx_ptr, MONITOR_WIDTH, MONITOR_HEIGHT, "fdf");
 
-	
-
-	print(&general);
+		print(&general);
 
 
 	

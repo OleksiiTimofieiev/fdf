@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:13:26 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:14:37 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # define INT_STOP 777
 # define Y_LIMIT 2000
 # define STEP_BASE 45
+# define MONITOR_WIDTH 5120
+# define MONITOR_HEIGHT 2880
 
 # include <stdio.h>
 # include <fcntl.h>
