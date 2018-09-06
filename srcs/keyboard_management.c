@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 17:13:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:47:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:47:52 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static	void	navigation(t_g **g)
 	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 185, 0xFFFFFF,
 	"MAGENTA <=> 'e'");
 	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 215, 0xFFFFFF,
-	"RESET <=> 'r'");
+	"GREEN <=> 'r'");
 	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 245, 0xFFFFFF,
 	"ROTATION <=> 'SPACE'");
 	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 275, 0xFFFFFF,
