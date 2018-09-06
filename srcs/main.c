@@ -6,29 +6,23 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:53:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 19:46:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// done: scale, color, moves in 2d, moves in 3d matrix transponation, 
-// different colors on heights, depending from the angle;
-// -i -> invinsible;
-
 #include "../includes/fdf.h"
 
-// TODO: 1 dot; // if i dot -> ups, do not want to work with it;
-// TODO: parse color, but not use them;
-
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_g	g;
-	
+
 	if (argc == 2 || argc == 3)
 	{
 		init_g(&g);
-		(!(g.parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
+		(!(g.parsed_data = transform_to_int(argv[1]))) ?
+		ft_putstr("Invalid data in the file.\n") : 0;
 	}
-	if(argc == 3)
+	if (argc == 3)
 		g.gradient = (!ft_strequ("-i", argv[2])) ? -2.0 : 2;
 	(g.parsed_data) ? g.data = fill_the_initial_matrix(g.parsed_data) : exit(0);
 	mlx_key_hook(g.win_ptr, deal_with_keyboard, &g);

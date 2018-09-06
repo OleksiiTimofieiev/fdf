@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:20:32 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 19:45:05 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef	struct		s_buf
 }					t_buf;
 
 void				init_g(t_g *g);
+int					len_max(int **array);
 int					validation(char **data_file);
 void				initialization(int **array, char **data_from_file, int i);
 int					**transform_to_int(char *filename);

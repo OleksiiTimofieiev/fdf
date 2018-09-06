@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 18:44:46 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 10:57:23 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 19:44:25 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,7 @@ static	int		equality_of_rows(int **array)
 	int res;
 
 	init(&i, &j, &len, &res);
-	while (array[0][j++] != INT_STOP)
-		len++;
+	len = len_max(array);
 	while (array[i])
 	{
 		j = 0;
@@ -80,11 +79,11 @@ static	int		equality_of_rows(int **array)
 		while (array[i][j] != INT_STOP)
 		{
 			count++;
-			res = (array[i][j++] > Y_LIMIT) ? 0 : 1;
+			j++;
 		}
+		res = (count != len) ? 0 : 1;
 		if (!res)
 			return (0);
-		res = (count != len) ? 0 : 1;
 		i++;
 	}
 	return (res);

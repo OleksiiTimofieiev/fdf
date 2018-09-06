@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:49:35 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:30:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 19:44:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,30 @@ void	init_g(t_g *g)
 	MONITOR_HEIGHT, "fdf");
 	mlx_string_put(g->mlx_ptr, g->win_ptr, 1100, 650, 0xFFFFFF,
 	"Please, push 'x' to continue.");
+}
+
+int		len_max(int **array)
+{
+	int i;
+	int j;
+	int len;
+	int count;
+
+	i = 0;
+	j = 0;
+	len = 0;
+	count = 0;
+	while (array[i])
+	{
+		j = 0;
+		count = 0;
+		while (array[i][j] != INT_STOP)
+		{
+			count++;
+			j++;
+		}
+		len = (count > len) ? count : len;
+		i++;
+	}
+	return (len);
 }
