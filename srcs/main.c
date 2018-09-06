@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 16:05:25 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:11:21 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,16 +107,9 @@ int	deal(int key, t_g *g) // aTODO:rray of function pointers
 		g->correction_x += MOV_SCALE;
 	else if (key == 69)
 	{
-		// g->step += SCALE;
 			rotate_x(g, 0.05);
 			rotate_y(g, 0.05);
 			rotate_z(g, 0.05);
-			
-			// rotate_y(g, 1);
-			// rotate_z(g, 5);
-			
-	// rotate_y(g, 1);
-	// rotate_z(g,1);
 	}
 	else if (key == 78)
 		g->step -= SCALE;
