@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:55:38 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:57:37 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 // 	int			numerator;
 // }				t_buf;
 
-void	init_data_for_drawing(t_g ** g, t_buf *buf, int i, int j)
+void	init_data_for_drawing_row(t_g ** g, t_buf *buf, int i, int j)
 {
 	buf->x = (*g)->data[i][j].x * (*g)->step;
 	buf->y = (*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z;
@@ -40,7 +40,8 @@ void	line(t_g ** g, int i, int j)
 {	
 	t_buf	buf;
 
-	init_data_for_drawing(g, &buf, i, j);
+	// TODO: if for dependency of the function;
+	init_data_for_drawing_row(g, &buf, i, j);
 
 	int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
 	
