@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:50:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:54:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // TODO: clean all possible leaks;
 // TODO: parse color;
 // TODO: gradient for the heigh;
-// TODO: change of the height
+// TODO: change of the height according to the keyboard;
 
 int main(int argc, char **argv)
 {

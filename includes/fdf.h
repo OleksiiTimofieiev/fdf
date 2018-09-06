@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:18:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:57:33 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define BLUE_COLOR 0x0000FF
 # define YELLOW_COLOR 0xFFFF00
 # define MAGENTA_COLOR 0xFF00FF
+#define GREEN_COLOR 0x008000
 
 # define MONITOR_WIDTH 5120
 # define MONITOR_HEIGHT 2880
