@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:24:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:25:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main(int argc, char **argv)
 	mlx_key_hook(g.win_ptr, deal_with_keyboard, &g);
 	mlx_loop(g.mlx_ptr);
 
-	
 	system("leaks -q fdf");
 	return (0);
 }
