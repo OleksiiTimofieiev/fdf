@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 14:22:38 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 14:48:42 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,28 @@
 // TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
 // TODO: default angle;
 // TODO: MATRIX of rotation;
+// TODO: info blocks;
+
+int	deal_with_color(int key, t_g *param)
+{
+	if (key == 12)
+		param->color = BLUE_COLOR;
+	else if (key == 13)
+		param->color = YELLOW_COLOR;
+	else if (key == 14)
+		param->color = MAGENTA_COLOR;
+	else if (key == 15)
+		param->color = INIT_COLOR;
+	mlx_clear_window(param->mlx_ptr, param->win_ptr);
+	print(param);
+	
+	
+	return (0);
+}
 
 int main(int argc, char **argv)
 {
+	// int deal_key = 0;;
 	t_g	g;
 	
 	init_g(&g);
@@ -34,7 +53,7 @@ int main(int argc, char **argv)
 	print(&g);
 	
 
-	
+	mlx_key_hook(g.win_ptr, deal_with_color, &g);
 	mlx_loop(g.mlx_ptr);
 
 
