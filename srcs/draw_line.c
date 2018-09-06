@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:02:50 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:03:24 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,15 @@ void	line(t_g ** g, int i, int j)
 		buf.dx2 = 0;
 	}
 
-	int numerator = buf.longest >> 1;
+	buf.numerator = buf.longest >> 1;
 
 	for (int i = 0; i <= buf.longest; i++)
 	{
 		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x, buf.y, 0xFFFFFF);
-		numerator += buf.shortest;
-		if (!(numerator < buf.longest))
+		buf.numerator += buf.shortest;
+		if (!(buf.numerator < buf.longest))
 		{
-			numerator -= buf.longest;
+			buf.numerator -= buf.longest;
 			buf.x += buf.dx1;
 			buf.y += buf.dy1;
 		}
