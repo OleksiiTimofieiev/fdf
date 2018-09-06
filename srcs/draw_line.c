@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 13:01:59 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 13:53:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	line(t_g **g, int i, int j, int type_of_vector)
 	while (buf.iterator <= buf.longest)
 	{
 		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x,
-		buf.y, 0xFFFFFF); // TODO: color;
+		buf.y, (*g)->color); // TODO: color;
 		buf.numerator += buf.shortest;
 		if (!(buf.numerator < buf.longest))
 		{

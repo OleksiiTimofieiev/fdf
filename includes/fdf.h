@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:38:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 13:53:11 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 
 # define INT_STOP 777
 # define Y_LIMIT 2000
-# define STEP_BASE 50
+# define INIT_BASE 50
+
+# define INIT_COLOR 0xFFFFFF
+# define BLUE_COLOR 0x0000FF
+# define YELLOW_COLOR 0xFFFF00
+# define MAGENTA_COLOR 0xFF00FF
+
 # define MONITOR_WIDTH 5120
 # define MONITOR_HEIGHT 2880
 # define TYPE_V_ROW 1
@@ -42,6 +48,7 @@ typedef	struct	s_g
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			step;
+	int			color;
 }				t_g;
 
 typedef	struct	s_buf
