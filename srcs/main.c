@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 16:31:11 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 10:45:34 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 // TODO: esc -> exit 0
 // TODO: defines for colors;
 // TODO: сдвиг;
+// TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
+// TODO: mo
 
 void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr) // TODO:pass data[i][j];
 {
@@ -66,20 +68,21 @@ void line(int x, int y, int x2, int y2, void **mlx_ptr, void **win_ptr) // TODO:
 	}
 }
 
-void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
+void print_row(t_general *general)
 {
 	int i = 0;
 	int j = 0;
 
 	// TODO: intermidiate struct will be passed;
 
-	while (data[i])
+	while (general->data[i])
 	{
 		j = 0;
 
-		while (data[i][j + 1].x != INT_STOP)
+		while (general->data[i][j + 1].x != INT_STOP)
 		{
-			line((data[i][j].x) * STEP, (data[i][j].y) * STEP + data[i][j].z, (data[i][j + 1].x) * STEP, (data[i][j + 1].y) * STEP + data[i][j + 1].z, mlx_ptr, win_ptr);
+			line((general->data[i][j].x) * general->step, (general->data[i][j].y) * general->step + general->data[i][j].z, (general->data[i][j + 1].x) * general->step,
+			 (general->data[i][j + 1].y) * general->step + general->data[i][j + 1].z, &general->mlx_ptr, &general->win_ptr);
 			j++;
 		}
 		i++;
@@ -87,60 +90,60 @@ void print_row(t_coord **data, void **mlx_ptr, void **win_ptr)
 
 }
 
-void print_column(t_coord **data, void **mlx_ptr, void **win_ptr)
+void print_column(t_general *general)
 {
 	int j = 0;
 	int i = 0;
 
 	int length = 0;
-	while(data[length])
+	while(general->data[length])
 		length++;
 	
 	while(j < length - 1)
 	{
 		i = 0;
-		while (data[j][i].x != INT_STOP)
+		while (general->data[j][i].x != INT_STOP)
 		{
-			line((data[j][i].x) * STEP, (data[j][i].y) * STEP + data[j][i].z, (data[j + 1][i].x) * STEP, (data[j + 1][i].y) * STEP + data[j + 1][i].z, mlx_ptr, win_ptr);
+			line((general->data[j][i].x) * general->step, (general->data[j][i].y) * general->step + general->data[j][i].z, (general->data[j + 1][i].x) * general->step,
+			 (general->data[j + 1][i].y) * general->step + general->data[j + 1][i].z, &general->mlx_ptr, &general->win_ptr);
 			i++;
 		}
 		j++;
 	}
 }
 
-int		main(int argc, char **argv)
+void init(t_general *general)
 {
-	int			**parsed_data;
-	t_coord		**data;
-	void		*mlx_ptr = NULL;
-	void		*win_ptr = NULL;
+	general->data = NULL;
+	general->parsed_data = NULL;
+	general->mlx_ptr = NULL;
+	general->win_ptr = NULL;
+	general->step = STEP_BASE;
+}
+
+	int main(int argc, char **argv)
+{
+	t_general	general;
 	
-	data = NULL;
-	parsed_data = NULL;
+	init(&general);
 	if (argc == 2)
-		(!(parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
-	(parsed_data) ? data = fill_the_initial_matrix(parsed_data) : exit(0);
+		(!(general.parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
+	(general.parsed_data) ? general.data = fill_the_initial_matrix(general.parsed_data) : exit(0); // TODO: func for exit;
+	general.mlx_ptr = mlx_init();
+	general.win_ptr = mlx_new_window(general.mlx_ptr, 5120, 2880, "fdf");
 
 	
-	mlx_ptr = mlx_init();
+	print_row(&general);
+	print_column(&general);
+
+
+
+	
+	mlx_loop(general.mlx_ptr);
+
+
+
 	// mlx_clear_window(mlx_ptr, win_ptr);
-	win_ptr = mlx_new_window(mlx_ptr, 5120, 2880, "fdf");
-	print_row(data, &mlx_ptr, &win_ptr);
-	print_column(data, &mlx_ptr, &win_ptr);
-
-	// line(5 * STEP, 5 * STEP, 10 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, 10 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, 5 * STEP, 10 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, 5 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, 15 * STEP, -5 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, -10 * STEP, -10 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, -15 * STEP, 5 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, -15 * STEP, 25 * STEP, &mlx_ptr, &win_ptr);
-	// line(5 * STEP, 5 * STEP, -15 * STEP, 15 * STEP, &mlx_ptr, &win_ptr);
-
-
-	mlx_loop(mlx_ptr);
-
 	// mlx_new_window - clear(for refresh) - destroy(create bigger window),
 
 	system("leaks -q fdf");

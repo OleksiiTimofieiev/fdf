@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/05 16:31:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 10:45:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 # define INT_STOP 777
 # define Y_LIMIT 2000
-# define STEP 50
+# define STEP_BASE 10
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -29,6 +29,15 @@ typedef struct	s_coord
 	double		z;
 	double		color;
 }				t_coord;
+
+typedef	struct	s_general
+{
+	int			**parsed_data;
+	t_coord		**data;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			step;
+}				t_general;
 
 int				validation(char **data_file);
 void			initialization(int **array, char **data_from_file, int i);
