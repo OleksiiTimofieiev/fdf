@@ -6,16 +6,16 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:49:35 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 20:19:16 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 21:58:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	init_g(t_g *g)
+void	init_g(t_g *g, char **argv)
 {
 	g->data = NULL;
-	g->parsed_data = NULL;
+	g->parsed_data = transform_to_int(argv[0]);
 	g->mlx_ptr = NULL;
 	g->win_ptr = NULL;
 	g->step = INIT_SCALE;
@@ -24,11 +24,19 @@ void	init_g(t_g *g)
 	g->correction_y = INIT_CORRECTION_Y;
 	g->corner = 0;
 	g->gradient = -2.0;
-	g->mlx_ptr = mlx_init();
-	g->win_ptr = mlx_new_window(g->mlx_ptr, MONITOR_WIDTH,
-	MONITOR_HEIGHT, "fdf");
-	mlx_string_put(g->mlx_ptr, g->win_ptr, 1100, 650, 0xFFFFFF,
-	"Please, push 'x' to continue.");
+	if (g->parsed_data)
+	{
+		g->mlx_ptr = mlx_init();
+		g->win_ptr = mlx_new_window(g->mlx_ptr, MONITOR_WIDTH,
+		MONITOR_HEIGHT, "fdf");
+		mlx_string_put(g->mlx_ptr, g->win_ptr, 1100, 650, 0xFFFFFF,
+		"Please, push 'x' to continue.");
+	}
+	else
+	{
+		ft_putstr("Bad input.\n");
+		exit(0);
+	}
 }
 
 int		len_max(int **array)
@@ -65,4 +73,26 @@ int		size_double(int **array)
 	while (array[i])
 		i++;
 	return (i);
+}
+
+void	check_line(char **line, int fd)
+{
+	if (!(*line))
+	{
+		close(fd);
+		ft_putstr("Bad input.\n");
+		exit(0);
+	}
+	else
+		free(*line);
+}
+
+void check_tmp(char **tmp, int fd)
+{
+	if (!(*tmp))
+	{
+		close(fd);
+		ft_putstr("Bad input.\n");
+		exit(0);
+	}
 }

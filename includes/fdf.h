@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 20:19:12 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 21:59:27 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef	struct		s_buf
 	double			iterator;
 }					t_buf;
 
-void				init_g(t_g *g);
+void				init_g(t_g *g, char **argv);
 int					len_max(int **array);
 int					validation(char **data_file);
 void				initialization(int **array, char **data_from_file, int i);
@@ -89,5 +89,7 @@ void				line(t_g **g, int i, int j, int type_of_vector);
 void				rotate(int key, t_g **g);
 int					deal_with_keyboard(int key, t_g *g);
 int					size_double(int **array);
+void				check_line(char **line, int fd);
+void				check_tmp(char **tmp, int fd);
 
 #endif
