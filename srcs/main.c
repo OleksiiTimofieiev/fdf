@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:27:35 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:44:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int main(int argc, char **argv)
 {
 	t_g	g;
 	
-	init_g(&g);
 	if (argc == 2 || argc == 3)
+	{
+		init_g(&g);
 		(!(g.parsed_data = transform_to_int(argv[1]))) ? ft_putstr("Invalid data in the file.\n") : 0;
+	}
 	if(argc == 3)
 		g.gradient = (!ft_strequ("-i", argv[2])) ? -2.0 : 2;
 	(g.parsed_data) ? g.data = fill_the_initial_matrix(g.parsed_data) : exit(0);
