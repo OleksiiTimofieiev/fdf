@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:45:14 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:50:54 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "../includes/fdf.h"
 
 // TODO: 1 dot; // if i dot -> ups, do not want to work with it;
-// TODO: info blocks;
 // TODO: clean all possible leaks;
 // TODO: parse color;
-// TODO: gradient;
+// TODO: gradient for the heigh;
+// TODO: change of the height
 
 int main(int argc, char **argv)
 {
