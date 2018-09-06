@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:28:07 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:58:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 // TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
 // TODO: mo
 // TODO: add prefix;
+// TODO: default angle;
 
 int main(int argc, char **argv)
 {

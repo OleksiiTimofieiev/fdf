@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:57:37 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:01:18 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	init_data_for_drawing_row(t_g ** g, t_buf *buf, int i, int j)
 	buf->y = (*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z;
 	buf->w = ((*g)->data[i][j + 1].x * (*g)->step) - ((*g)->data[i][j].x * (*g)->step);
 	buf->h = ((*g)->data[i][j + 1].y * (*g)->step + (*g)->data[i][j + 1].z) - ((*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z);
+	buf->dx1 = 0;
+	buf->dx2 = 0;
+	buf->dy1 = 0;
+	buf->dy2 = 0;
+	
 	
 }
 
@@ -43,20 +48,20 @@ void	line(t_g ** g, int i, int j)
 	// TODO: if for dependency of the function;
 	init_data_for_drawing_row(g, &buf, i, j);
 
-	int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
+
 	
 	if (buf.w < 0)
-		dx1 = -1;
+		buf.dx1 = -1;
 	else if (buf.w > 0)
-		dx1 = 1;
+		buf.dx1 = 1;
 	if (buf.h < 0)
-		dy1 = -1;
+		buf.dy1 = -1;
 	else if (buf.h > 0)
-		dy1 = 1;
+		buf.dy1 = 1;
 	if (buf.w < 0)
-		dx2 = -1;
+		buf.dx2 = -1;
 	else if (buf.w > 0)
-		dx2 = 1;
+		buf.dx2 = 1;
 		
 	int longest = abs(buf.w);
 	int shortest = abs(buf.h);
@@ -66,10 +71,10 @@ void	line(t_g ** g, int i, int j)
 		longest = abs(buf.h);
 		shortest = abs(buf.w);
 		if (buf.h < 0)
-			dy2 = -1;
+			buf.dy2 = -1;
 		else if (buf.h > 0)
-			dy2 = 1;
-		dx2 = 0;
+			buf.dy2 = 1;
+		buf.dx2 = 0;
 	}
 
 	int numerator = longest >> 1;
@@ -81,13 +86,13 @@ void	line(t_g ** g, int i, int j)
 		if (!(numerator < longest))
 		{
 			numerator -= longest;
-			buf.x += dx1;
-			buf.y += dy1;
+			buf.x += buf.dx1;
+			buf.y += buf.dy1;
 		}
 		else
 		{
-			buf.x += dx2;
-			buf.y += dy2;
+			buf.x += buf.dx2;
+			buf.y += buf.dy2;
 		}
 	}
 }
