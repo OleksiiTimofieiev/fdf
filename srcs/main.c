@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:04:12 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:08:53 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 // TODO: default angle;
 // TODO: MATRIX of rotation;
 // TODO: info blocks;
+// TODO: clean all possible leaks;
 
 int	deal(int key, t_g *param) // aTODO:rray of function pointers
 {
@@ -43,6 +44,12 @@ int	deal(int key, t_g *param) // aTODO:rray of function pointers
 		param->step += SCALE;
 	else if (key == 78)
 		param->step -= SCALE;
+	else if (key == 53)
+	{
+		mlx_destroy_window(param->mlx_ptr, param->win_ptr);
+		exit(1);
+		return(0);
+	}
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	print(param);
 	return (0);
@@ -66,7 +73,6 @@ int main(int argc, char **argv)
 	
 
 	mlx_key_hook(g.win_ptr, deal, &g);
-	
 	mlx_loop(g.mlx_ptr);
 
 
