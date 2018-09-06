@@ -5,7 +5,8 @@ SRCS		=  	./srcs/main.c \
 				./srcs/validation.c \
 				./srcs/fill_initial_matrix.c \
 				./srcs/init.c \
-				./srcs/print.c
+				./srcs/print.c \
+				./srcs/draw_line.c
 CFLAGS		= 	-Wall -Wextra -Werror
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a
