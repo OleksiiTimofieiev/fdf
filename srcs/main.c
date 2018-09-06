@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 16:11:21 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:14:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	rotate_z(t_g *g, double corner)
 // TODO: info blocks;
 // TODO: clean all possible leaks;
 // TODO: press any button;
-// TODO: double vs ints in struc;
 
 int	deal(int key, t_g *g) // aTODO:rray of function pointers
 {
