@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 14:17:12 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 14:22:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 // TODO: 1 dot; // broz to all sides;
 // TODO: esc -> exit 0
-// TODO: defines for colors;
 // TODO: сдвиг left/right; scale with map limits
 // TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
-// TODO: mo
-// TODO: add prefix;
 // TODO: default angle;
+// TODO: MATRIX of rotation;
 
 int main(int argc, char **argv)
 {
