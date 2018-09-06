@@ -6,15 +6,16 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:02:45 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:04:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+// done: scale, color, moves in 2d;
+
 // TODO: 1 dot; // broz to all sides;
 // TODO: esc -> exit 0
-// TODO: сдвиг left/right; scale with map limits
 // TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
 // TODO: default angle;
 // TODO: MATRIX of rotation;
