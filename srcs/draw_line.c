@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 14:15:48 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:25:19 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ static void	set_deviation(t_buf *buf)
 
 static void	set_longest_shortest_numerator(t_buf *buf)
 {
-	buf->longest = abs(buf->w);
-	buf->shortest = abs(buf->h);
+	buf->longest = fabs(buf->w);
+	buf->shortest = fabs(buf->h);
 	if (!(buf->longest > buf->shortest))
 	{
-		buf->longest = abs(buf->h);
-		buf->shortest = abs(buf->w);
+		buf->longest = fabs(buf->h);
+		buf->shortest = fabs(buf->w);
 		if (buf->h < 0)
 			buf->dy2 = -1;
 		else if (buf->h > 0)

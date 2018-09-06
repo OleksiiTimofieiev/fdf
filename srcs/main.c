@@ -6,11 +6,74 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:14:28 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:47:57 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	rotate_x(t_g *g, int corner)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (g->data[i])
+	{
+		j = 0;
+		while (g->data[i][j].x != INT_STOP)
+		{
+					g->data[i][j].x = g->data[i][j].x;
+					g->data[i][j].y = g->data[i][j].y * cos(corner) + g->data[i][j].z * sin(corner);
+					g->data[i][j].z = -g->data[i][j].y *sin(corner) + g->data[i][j].z * cos(corner);
+					j++;
+		}
+		i++;
+	}
+}
+
+void	rotate_y(t_g *g, int corner)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (g->data[i])
+	{
+		j = 0;
+		while (g->data[i][j].x != INT_STOP)
+		{
+					g->data[i][j].y = g->data[i][j].y;
+					g->data[i][j].x = g->data[i][j].x * cos(corner) + g->data[i][j].z * sin(corner);
+					g->data[i][j].z = -g->data[i][j].x *sin(corner) + g->data[i][j].z * cos(corner);
+					j++;
+		}
+		i++;
+	}
+}
+
+void	rotate_z(t_g *g, int corner)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (g->data[i])
+	{
+		j = 0;
+		while (g->data[i][j].x != INT_STOP)
+		{
+					g->data[i][j].z = g->data[i][j].z;
+					g->data[i][j].x = g->data[i][j].x * cos(corner) - g->data[i][j].y * sin(corner);
+					g->data[i][j].y = g->data[i][j].x *sin(corner) + g->data[i][j].y * cos(corner);
+					j++;
+		}
+		i++;
+	}
+}
 
 // done: scale, color, moves in 2d;
 
@@ -22,6 +85,7 @@
 // TODO: info blocks;
 // TODO: clean all possible leaks;
 // TODO: press any button;
+// TODO: double vs ints in struc;
 
 int	deal(int key, t_g *g) // aTODO:rray of function pointers
 {
@@ -42,7 +106,12 @@ int	deal(int key, t_g *g) // aTODO:rray of function pointers
 	else if (key == 124)
 		g->correction_x += MOV_SCALE;
 	else if (key == 69)
-		g->step += SCALE;
+	{
+		// g->step += SCALE;
+			rotate_x(g, 5);
+	// rotate_y(g);
+	// rotate_z(g);
+	}
 	else if (key == 78)
 		g->step -= SCALE;
 	else if (key == 53)
@@ -59,6 +128,9 @@ int	deal(int key, t_g *g) // aTODO:rray of function pointers
 }
 
 
+
+
+
 int main(int argc, char **argv)
 {
 	// int deal_key = 0;;
@@ -72,7 +144,10 @@ int main(int argc, char **argv)
 	g.mlx_ptr = mlx_init();
 	g.win_ptr = mlx_new_window(g.mlx_ptr, MONITOR_WIDTH, MONITOR_HEIGHT, "fdf");
 
-	// print(&g);
+	print(&g);
+
+	
+	
 	mlx_key_hook(g.win_ptr, deal, &g);
 	mlx_loop(g.mlx_ptr);
 

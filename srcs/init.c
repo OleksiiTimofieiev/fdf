@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 10:49:35 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 14:17:27 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:44:48 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	init_g(t_g *g)
 	g->color = INIT_COLOR;
 	g->correction_x = INIT_CORRECTION_X;
 	g->correction_y = INIT_CORRECTION_Y;
+	g->corner = 0;
 	
 }

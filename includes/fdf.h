@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:02:41 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:45:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,24 @@ typedef	struct	s_g
 	int			color;
 	int			correction_x;
 	int			correction_y;	
+	int			corner;
 }				t_g;
 
 typedef	struct	s_buf
 {
-	int			x;
-	int			y;
-	int			w;
-	int			h;
-	int			dx1;
-	int			dy1; 
-	int			dx2;
-	int			dy2;
-	int			longest;
-	int			shortest;
-	int			numerator;
-	int			iterator;
-}				t_buf;
+	double			x;
+	double			y;
+	double			w;
+	double			h;
+	double			dx1;
+	double			dy1; 
+	double			dx2;
+	double			dy2;
+	int				longest;
+	double			shortest;
+	double			numerator;
+	double			iterator;
+}					t_buf;
 
 void			init_g(t_g *g);
 int				validation(char **data_file);
