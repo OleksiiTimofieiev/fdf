@@ -6,12 +6,13 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:15:40 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:16:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+
 # define INT_STOP 777
 # define Y_LIMIT 2000
 # define STEP_BASE 45
