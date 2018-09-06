@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 18:30:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:41:31 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	row(t_g **g, t_buf *buf, int i, int j)
 	buf->dy1 = 0;
 	buf->dy2 = 0;
 	buf->iterator = 0;
+	buf->color = (*g)->color;
 }
 
 static void	lin(t_g **g, t_buf *buf, int j, int i)
@@ -42,6 +43,7 @@ static void	lin(t_g **g, t_buf *buf, int j, int i)
 	buf->dy1 = 0;
 	buf->dy2 = 0;
 	buf->iterator = 0;
+	buf->color = (*g)->color;
 }
 
 static void	set_deviation(t_buf *buf, int *c)
@@ -89,7 +91,7 @@ void		line(t_g **g, int i, int j, int type_of_vector)
 	while (buf.iterator <= buf.longest)
 	{
 		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x,
-		buf.y, (*g)->color + c);
+		buf.y, buf.color + c);
 		c += (*g)->gradient;
 		buf.numerator += buf.shortest;
 		if (!(buf.numerator < buf.longest))

@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 21:59:27 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:38:01 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef	struct		s_buf
 	double			shortest;
 	double			numerator;
 	double			iterator;
+	double			color;
 }					t_buf;
 
 void				init_g(t_g *g, char **argv);
