@@ -6,13 +6,14 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 22:48:55 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 23:20:32 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 // TODO: parsing of colors;
+// TODO: validator for colors; ?? test is even % 2 == 0;
 // TODO: leaks on each step;
 
 int		main(int argc, char **argv)
