@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:13:48 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:18:18 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,35 +39,35 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 
-typedef struct	s_coord
+typedef struct		s_coord
 {
-	double		x;
-	double		y;
-	double		z;
-	double		color;
-}				t_coord;
+	double			x;
+	double			y;
+	double			z;
+	double			color;
+}					t_coord;
 
-typedef	struct	s_g
+typedef	struct		s_g
 {
-	int			**parsed_data;
-	t_coord		**data;
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			step;
-	int			color;
-	int			correction_x;
-	int			correction_y;	
-	int			corner;
-}				t_g;
+	int				**parsed_data;
+	t_coord			**data;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	int				step;
+	int				color;
+	int				correction_x;
+	int				correction_y;
+	int				corner;
+}					t_g;
 
-typedef	struct	s_buf
+typedef	struct		s_buf
 {
 	double			x;
 	double			y;
 	double			w;
 	double			h;
 	double			dx1;
-	double			dy1; 
+	double			dy1;
 	double			dx2;
 	double			dy2;
 	int				longest;
