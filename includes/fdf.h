@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 22:38:01 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:54:32 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_coord
 	double			x;
 	double			y;
 	double			z;
-	double			color;
+	int				color;
 }					t_coord;
 
 typedef	struct		s_g
