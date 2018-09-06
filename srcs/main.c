@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:00:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:02:45 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ int	deal(int key, t_g *param) // aTODO:rray of function pointers
 		param->correction_x -= MOV_SCALE;
 	else if (key == 124)
 		param->correction_x += MOV_SCALE;
+	else if (key == 69)
+		param->step += SCALE;
+	else if (key == 78)
+		param->step -= SCALE;
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	print(param);
 	return (0);
