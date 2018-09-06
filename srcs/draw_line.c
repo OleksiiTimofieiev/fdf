@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:01:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:02:25 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	line(t_g ** g, int i, int j)
 	// TODO: if for dependency of the function;
 	init_data_for_drawing_row(g, &buf, i, j);
 
-
-	
 	if (buf.w < 0)
 		buf.dx1 = -1;
 	else if (buf.w > 0)
@@ -63,13 +61,13 @@ void	line(t_g ** g, int i, int j)
 	else if (buf.w > 0)
 		buf.dx2 = 1;
 		
-	int longest = abs(buf.w);
-	int shortest = abs(buf.h);
+	buf.longest = abs(buf.w);
+	buf.shortest = abs(buf.h);
 	
-	if (!(longest > shortest))
+	if (!(buf.longest > buf.shortest))
 	{
-		longest = abs(buf.h);
-		shortest = abs(buf.w);
+		buf.longest = abs(buf.h);
+		buf.shortest = abs(buf.w);
 		if (buf.h < 0)
 			buf.dy2 = -1;
 		else if (buf.h > 0)
@@ -77,15 +75,15 @@ void	line(t_g ** g, int i, int j)
 		buf.dx2 = 0;
 	}
 
-	int numerator = longest >> 1;
+	int numerator = buf.longest >> 1;
 
-	for (int i = 0; i <= longest; i++)
+	for (int i = 0; i <= buf.longest; i++)
 	{
 		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x, buf.y, 0xFFFFFF);
-		numerator += shortest;
-		if (!(numerator < longest))
+		numerator += buf.shortest;
+		if (!(numerator < buf.longest))
 		{
-			numerator -= longest;
+			numerator -= buf.longest;
 			buf.x += buf.dx1;
 			buf.y += buf.dy1;
 		}
