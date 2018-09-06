@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 17:13:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 22:57:02 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:59:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,7 @@ static	void	change_color(int key, t_g **g)
 	{
 		j = 0;
 		while ((*g)->data[i][j].x != INT_STOP)
-		{
-			(*g)->data[i][j].color = (*g)->color;
-			j++;
-		}
+			(*g)->data[i][j++].color = (*g)->color;
 		i++;
 	}
 }
