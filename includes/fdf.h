@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:57:33 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:20:32 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef	struct		s_g
 	int				correction_x;
 	int				correction_y;
 	int				corner;
+	float			gradient;
 }					t_g;
 
 typedef	struct		s_buf

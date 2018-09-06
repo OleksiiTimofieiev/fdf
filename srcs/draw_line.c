@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:53:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:18:16 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ static void	set_longest_shortest_numerator(t_buf *buf)
 void		line(t_g **g, int i, int j, int type_of_vector)
 {
 	t_buf	buf;
+	int c = 0;
 
 	(type_of_vector == TYPE_V_ROW) ? row(g, &buf, i, j) : lin(g, &buf, j, i);
 	set_deviation(&buf);
@@ -87,7 +88,8 @@ void		line(t_g **g, int i, int j, int type_of_vector)
 	while (buf.iterator <= buf.longest)
 	{
 		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x,
-		buf.y, (*g)->color);
+		buf.y, (*g)->color + c);
+		c += (*g)->gradient;
 		buf.numerator += buf.shortest;
 		if (!(buf.numerator < buf.longest))
 		{

@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 17:13:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 17:57:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:08:12 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,24 @@
 
 static	void	navigation(t_g **g)
 {
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 35, 0x008000, "Menu:");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 65, 0xFFFFFF, "Zoom in <=> '+'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 95, 0xFFFFFF, "Zoom in <=> '-'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 125, 0xFFFFFF, "BLUE <=> 'q'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 155, 0xFFFFFF, "YELLOW <=> 'w'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 185, 0xFFFFFF, "MAGENTA <=> 'e'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 215, 0xFFFFFF, "RESET <=> 'r'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 245, 0xFFFFFF, "ROTATION <=> 'SPACE'");
-	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 275, 0xFFFFFF, "ROTATION CLOCKWISE <=> 'ENTER'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 35, 0x008000,
+	"Menu:");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 65, 0xFFFFFF,
+	"Zoom in <=> '+'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 95, 0xFFFFFF,
+	"Zoom out <=> '-'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 125, 0xFFFFFF,
+	"BLUE <=> 'q'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 155, 0xFFFFFF,
+	"YELLOW <=> 'w'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 185, 0xFFFFFF,
+	"MAGENTA <=> 'e'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 215, 0xFFFFFF,
+	"RESET <=> 'r'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 245, 0xFFFFFF,
+	"ROTATION <=> 'SPACE'");
+	mlx_string_put((*g)->mlx_ptr, (*g)->win_ptr, 30, 275, 0xFFFFFF,
+	"ROTATION CLOCKWISE <=> 'ENTER'");
 }
 
 static	void	change_color(int key, t_g **g)
