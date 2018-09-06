@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 17:13:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 22:59:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 23:39:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static	void	change_color(int key, t_g **g)
 		(*g)->color = MAGENTA_COLOR;
 	else if (key == 15)
 		(*g)->color = GREEN_COLOR;
-
 	if ((*g)->color != INIT_COLOR)
 	{
 		while ((*g)->data[i])
