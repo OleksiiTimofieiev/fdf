@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 15:08:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:14:28 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,40 @@
 // TODO: MATRIX of rotation;
 // TODO: info blocks;
 // TODO: clean all possible leaks;
+// TODO: press any button;
 
-int	deal(int key, t_g *param) // aTODO:rray of function pointers
+int	deal(int key, t_g *g) // aTODO:rray of function pointers
 {
 	if (key == 12)
-		param->color = BLUE_COLOR;
+		g->color = BLUE_COLOR;
 	else if (key == 13)
-		param->color = YELLOW_COLOR;
+		g->color = YELLOW_COLOR;
 	else if (key == 14)
-		param->color = MAGENTA_COLOR;
+		g->color = MAGENTA_COLOR;
 	else if (key == 15)
-		param->color = INIT_COLOR;
+		g->color = INIT_COLOR;
 	else if (key == 126)
-		param->correction_y -= MOV_SCALE;
+		g->correction_y -= MOV_SCALE;
 	else if (key == 125)
-		param->correction_y += MOV_SCALE;
+		g->correction_y += MOV_SCALE;
 	else if (key == 123)
-		param->correction_x -= MOV_SCALE;
+		g->correction_x -= MOV_SCALE;
 	else if (key == 124)
-		param->correction_x += MOV_SCALE;
+		g->correction_x += MOV_SCALE;
 	else if (key == 69)
-		param->step += SCALE;
+		g->step += SCALE;
 	else if (key == 78)
-		param->step -= SCALE;
+		g->step -= SCALE;
 	else if (key == 53)
 	{
-		mlx_destroy_window(param->mlx_ptr, param->win_ptr);
+		mlx_destroy_window(g->mlx_ptr, g->win_ptr);
 		exit(1);
 		return(0);
 	}
-	mlx_clear_window(param->mlx_ptr, param->win_ptr);
-	print(param);
+	else
+		g->color = INIT_COLOR;
+	mlx_clear_window(g->mlx_ptr, g->win_ptr);
+	print(g);
 	return (0);
 }
 
@@ -69,9 +72,7 @@ int main(int argc, char **argv)
 	g.mlx_ptr = mlx_init();
 	g.win_ptr = mlx_new_window(g.mlx_ptr, MONITOR_WIDTH, MONITOR_HEIGHT, "fdf");
 
-	print(&g);
-	
-
+	// print(&g);
 	mlx_key_hook(g.win_ptr, deal, &g);
 	mlx_loop(g.mlx_ptr);
 
