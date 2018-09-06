@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 16:26:58 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:50:51 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,28 +75,36 @@ void	rotate_z(t_g *g, double corner)
 	}
 }
 
-// done: scale, color, moves in 2d;
+// done: scale, color, moves in 2d, moves in 3d;
 
 // TODO: 1 dot; // broz to all sides;
-// TODO: esc -> exit 0
 // TODO: https://www.tutorialspoint.com/c_standard_library/math_h.htm
 // TODO: default angle;
-// TODO: MATRIX of rotation;
 // TODO: info blocks;
 // TODO: clean all possible leaks;
 // TODO: press any button;
+// TODO: parse color;
+// TODO: leaks;
 
-int	deal(int key, t_g *g) // aTODO:rray of function pointers
-{
-	if (key == 12)
-		g->color = BLUE_COLOR;
+void	change_color(int key, t_g **g)
+{}
+
+	ft_putstr("wtf\n");
+		(*g)->color = BLUE_COLOR;
+	}
 	else if (key == 13)
-		g->color = YELLOW_COLOR;
+		(*g)->color = YELLOW_COLOR;
 	else if (key == 14)
-		g->color = MAGENTA_COLOR;
+		(*g)->color = MAGENTA_COLOR;
 	else if (key == 15)
-		g->color = INIT_COLOR;
-	else if (key == 126)
+		(*g)->color = INIT_COLOR;
+}
+
+int		deal(int key, t_g *g) // aTODO:rray of function pointers
+{
+	change_color(key, &g);
+	
+	if (key == 126)
 		g->correction_y -= MOV_SCALE;
 	else if (key == 125)
 		g->correction_y += MOV_SCALE;
@@ -121,9 +129,7 @@ int	deal(int key, t_g *g) // aTODO:rray of function pointers
 	else
 		g->color = INIT_COLOR;
 	mlx_clear_window(g->mlx_ptr, g->win_ptr);
-
 	print(g);
-	
 	return (0);
 }
 
@@ -143,7 +149,7 @@ int main(int argc, char **argv)
 	
 	g.mlx_ptr = mlx_init();
 	g.win_ptr = mlx_new_window(g.mlx_ptr, MONITOR_WIDTH, MONITOR_HEIGHT, "fdf");
-
+			
 	print(&g);
 	mlx_key_hook(g.win_ptr, deal, &g);
 	mlx_loop(g.mlx_ptr);

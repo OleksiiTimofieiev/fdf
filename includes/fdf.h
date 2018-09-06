@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 16:23:13 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:42:58 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define INT_STOP 777
 # define Y_LIMIT 2000
-# define INIT_SCALE 5
+# define INIT_SCALE 20
 # define SCALE 5
 
 # define INIT_CORRECTION_X 1100
