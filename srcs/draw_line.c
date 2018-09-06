@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 12:02:25 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 12:02:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ void	line(t_g ** g, int i, int j)
 		buf.dx1 = -1;
 	else if (buf.w > 0)
 		buf.dx1 = 1;
+		
 	if (buf.h < 0)
 		buf.dy1 = -1;
 	else if (buf.h > 0)
 		buf.dy1 = 1;
+		
 	if (buf.w < 0)
 		buf.dx2 = -1;
 	else if (buf.w > 0)
