@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:39:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:52:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,27 @@ typedef	struct	s_g
 	int			step;
 }				t_g;
 
+typedef	struct	s_buf
+{
+	int			x;
+	int			y;
+	int			w;
+	int			h;
+	int			dx1;
+	int			dy1; 
+	int			dx2;
+	int			dy2;
+	int			longest;
+	int			shortest;
+	int			numerator;
+}				t_buf;
+
 void			init_g(t_g *g);
 int				validation(char **data_file);
 void			initialization(int **array, char **data_from_file, int i);
 int				**transform_to_int(char *filename);
 t_coord			**fill_the_initial_matrix(int **parsed_data);
 void			print(t_g *g);
-void			line(t_g **g, int i, int j); // TODO:pass data[i][j];
+void			line(t_g **g, int i, int j);
 
 #endif

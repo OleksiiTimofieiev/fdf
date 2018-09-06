@@ -6,49 +6,64 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 11:18:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 11:39:14 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/06 11:53:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void line(t_g ** g, int i, int j) // TODO:pass data[i][j];
-{	
+// typedef	struct	s_buf
+// {
+// 	int			w;
+// 	int			h;
+// 	int			dx1;
+// 	int			dy1; 
+// 	int			dx2;
+// 	int			dy2;
+// 	int			longest;
+// 	int			shortest;
+// 	int			numerator;
+// }				t_buf;
 
-	int x = (*g)->data[i][j].x * (*g)->step;
-	int y = (*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z;
-	int x2 = (*g)->data[i][j + 1].x * (*g)->step;
-	int y2 = (*g)->data[i][j + 1].y * (*g)->step + (*g)->data[i][j + 1].z;
-
-
-
-
+void	init_data_for_drawing(t_g ** g, t_buf *buf, int i, int j)
+{
+	buf->x = (*g)->data[i][j].x * (*g)->step;
+	buf->y = (*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z;
+	buf->w = ((*g)->data[i][j + 1].x * (*g)->step) - ((*g)->data[i][j].x * (*g)->step);
+	buf->h = ((*g)->data[i][j + 1].y * (*g)->step + (*g)->data[i][j + 1].z) - ((*g)->data[i][j].y * (*g)->step + (*g)->data[i][j].z);
 	
-	int w = x2 - x;
-	int h = y2 - y;
+}
+
+void	line(t_g ** g, int i, int j)
+{	
+	t_buf	buf;
+
+	init_data_for_drawing(g, &buf, i, j);
+
 	int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-	if (w < 0)
+	
+	if (buf.w < 0)
 		dx1 = -1;
-	else if (w > 0)
+	else if (buf.w > 0)
 		dx1 = 1;
-	if (h < 0)
+	if (buf.h < 0)
 		dy1 = -1;
-	else if (h > 0)
+	else if (buf.h > 0)
 		dy1 = 1;
-	if (w < 0)
+	if (buf.w < 0)
 		dx2 = -1;
-	else if (w > 0)
+	else if (buf.w > 0)
 		dx2 = 1;
-	int longest = abs(w);
-	int shortest = abs(h);
+	int longest = abs(buf.w);
+	int shortest = abs(buf.h);
 	
 	if (!(longest > shortest))
 	{
-		longest = abs(h);
-		shortest = abs(w);
-		if (h < 0)
+		longest = abs(buf.h);
+		shortest = abs(buf.w);
+		if (buf.h < 0)
 			dy2 = -1;
-		else if (h > 0)
+		else if (buf.h > 0)
 			dy2 = 1;
 		dx2 = 0;
 	}
@@ -57,18 +72,18 @@ void line(t_g ** g, int i, int j) // TODO:pass data[i][j];
 
 	for (int i = 0; i <= longest; i++)
 	{
-		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, x, y, 0xFFFFFF);
+		mlx_pixel_put((*g)->mlx_ptr, (*g)->win_ptr, buf.x, buf.y, 0xFFFFFF);
 		numerator += shortest;
 		if (!(numerator < longest))
 		{
 			numerator -= longest;
-			x += dx1;
-			y += dy1;
+			buf.x += dx1;
+			buf.y += dy1;
 		}
 		else
 		{
-			x += dx2;
-			y += dy2;
+			buf.x += dx2;
+			buf.y += dy2;
 		}
 	}
 }
