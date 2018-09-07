@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 11:38:47 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 11:44:38 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	parse_colors(t_g *g, char *argv)
 	int j = 0;
 	char *file_contents;
 	char **after_newline;
-	// char **after_space;
+	char **after_space;
 
 	file_contents = get_file_contents(argv);
 	after_newline = ft_strsplit(file_contents, '\n');
@@ -120,13 +120,14 @@ void	parse_colors(t_g *g, char *argv)
 	
 	while(after_newline[i])
 	{
-		// after_space = ft_strsplit(after_newline[i], ' ');
+		after_space = ft_strsplit(after_newline[i], ' ');
 		j = 0;
 		while(g->data[i][j].x != INT_STOP)
 		{
-			g->data[i][j].color = MAGENTA_COLOR;
+			g->data[i][j].color = hexadecimalToDecimal(&after_space[j][0]);
 			j++;
 		}
+		ft_clean_2d_char(after_space);
 		i++;
 	}
 	ft_clean_2d_char(after_newline);
