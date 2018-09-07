@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 11:07:43 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/06 23:06:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:27:10 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		size_row(int *parsed_data)
 	return (i);
 }
 
-t_coord			**fill_the_initial_matrix(int **parsed_data)
+t_coord			**fill_the_matrix(int **parsed_data)
 {
 	t_coord	**res;
 	int		i;
@@ -52,7 +52,7 @@ t_coord			**fill_the_initial_matrix(int **parsed_data)
 			res[i][j].x = j;
 			res[i][j].y = i;
 			res[i][j].z = parsed_data[i][j];
-			res[i][j++].color = 0xFFFFFF ;
+			res[i][j++].color = INIT_COLOR;
 		}
 		res[i][j].x = INT_STOP;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 15:48:53 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:26:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int argc, char **argv)
 			ft_putstr("Bad input.\n");
 			exit(0);
 		}
-		(g.parsed_data) ? g.data = fill_the_initial_matrix(g.parsed_data) : exit(0);
+		(g.parsed_data) ? g.data = fill_the_matrix(g.parsed_data) : exit(0);
 		parse_colors(&g, argv[1]);
 		mlx_key_hook(g.win_ptr, deal_with_keyboard, &g);
 		mlx_loop(g.mlx_ptr);

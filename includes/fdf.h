@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 13:05:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:26:07 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int					len_max(int **array);
 int					validation(char **data_file);
 void				initialization(int **array, char **data_from_file, int i);
 int					**transform_to_int(char *filename);
-t_coord				**fill_the_initial_matrix(int **parsed_data);
+t_coord				**fill_the_matrix(int **parsed_data);
 void				print(t_g *g);
 void				line(t_g **g, int i, int j, int type_of_vector);
 void				rotate(int key, t_g **g);
