@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 16:54:18 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:54:49 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int		validation_of_colors(char *after_space, char **buf)
 		count++;
 	if (count == 0)
 		return (0);
-	if (!(str_for_analysis = (char*)malloc(sizeof(char) * (ft_strlen(after_space) - (count + 1) + 1))))
+	if (!(str_for_analysis = (char*)malloc(sizeof(char)
+		* (ft_strlen(after_space) - (count + 1) + 1))))
 		return (0);
 	i = 0;
 	j = ft_strlen(after_space) - (count + 1);
