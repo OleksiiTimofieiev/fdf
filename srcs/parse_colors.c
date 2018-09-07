@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 15:18:39 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:37:09 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,12 +128,32 @@ int		validation_of_colors(char *after_space, char **buf)
 
 	count = 0;
 	res = 0;
-	// ft_putstr(after_space);
-	while(*after_space && *(after_space) != ',')
+	int z = 0;
+	int z1 = 0;
+	
+	
+	while(after_space[z])
 	{
-		after_space++;
+		if (after_space[z] == ',')
+			z1++;
+			
+		z++;
+	}
+
+		if (z1 == 0)
+		return (res);
+
+	while(after_space[count] && after_space[count] != ',')
+	{
 		count++;
 	}
+	
+	ft_putstr("line->");
+	ft_putstr(after_space);
+	ft_putstr("\n");	
+		ft_putstr("count->");
+	ft_putnbr(count);
+	ft_putstr("\n");
 	
 	if (count == 0)
 		return (res);
@@ -146,16 +166,16 @@ int		validation_of_colors(char *after_space, char **buf)
 	unsigned long j = ft_strlen(after_space) - (count + 1);
 	while(i < j)
 	{
-		str_for_analysis[i] = after_space[count+1];
+		str_for_analysis[i] = after_space[count + 1];
 		i++;
 		count++;
 	}
 	str_for_analysis[i] = '\0';
-	
-	// ft_putstr("->");
-	// ft_putstr(str_for_analysis);
-	// ft_putstr("\n");
-	
+
+	ft_putstr("->");	
+	ft_putstr(str_for_analysis);
+	ft_putstr("\n");
+				
 	*buf = ft_strdup(str_for_analysis);
 	free(str_for_analysis);
 	res = 1;
@@ -174,7 +194,6 @@ void	parse_colors(t_g *g, char *argv)
 	file_contents = get_file_contents(argv);
 	after_newline = ft_strsplit(file_contents, '\n');
 	free(file_contents);
-
 	while(after_newline[i])
 	{
 		after_space = ft_strsplit(after_newline[i], ' ');
@@ -183,13 +202,7 @@ void	parse_colors(t_g *g, char *argv)
 		{
 			char *buf = NULL;
 			if(validation_of_colors(after_space[j], &buf))
-			{
-				ft_putstr("->");	
-				ft_putstr(buf);
-				ft_putstr("\n");
-				
 				g->data[i][j].color = hexadecimalToDecimal(buf);
-			}
 			free(buf);
 			j++;
 		}
