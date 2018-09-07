@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 14:05:47 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:12:05 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,11 @@ void	parse_colors(t_g *g, char *argv)
 	char **after_newline;
 	char **after_space;
 
+
+
+	int col = 0;
+
+
 	file_contents = get_file_contents(argv);
 	ft_putstr("here123\n");
 	after_newline = ft_strsplit(file_contents, '\n');
@@ -155,24 +160,18 @@ void	parse_colors(t_g *g, char *argv)
 	while(after_newline[i])
 	{
 		after_space = ft_strsplit(after_newline[i], ' ');
+
 		j = 0;
+		col = 0;
 		while(g->data[i][j].x != INT_STOP)
 		{
-			// TODO: validation; &after_space[j][0]
-			// TODO: conversion fo the format;
-			
-			// if (validation_of_colors(&after_space[j][i]))
-			// {
-				g->data[i][j].color = hexadecimalToDecimal("0x008000");
-			// }
+			g->data[i][j].color = hexadecimalToDecimal("0x008000");
 			j++;
 		}
+
+		
 		ft_clean_2d_char(after_space);
 		i++;
 	}
 	ft_clean_2d_char(after_newline);
-	
-
-
-	// print_array(g->data);
 }
