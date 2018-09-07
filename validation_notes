@@ -11,6 +11,7 @@ Input data:
 - max value of the monitor dimension;
 - no tabs as separator;
 - y not more then 2.000; in orde to have all pixels on the monitor;
+- equal quantity of '\n';
 
 Colors parsing:
 - len [3-8];

@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 17:15:50 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:17:56 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int		validation_of_colors(char *after_space, char **buf)
 	unsigned long	i;
 	unsigned long	j;
 
-	str_for_analysis = NULL;
 	count = 0;
 	if (!ft_str_find_chr(after_space, ','))
 		return (0);
@@ -72,6 +71,8 @@ int		validation_of_colors(char *after_space, char **buf)
 	while (i < j)
 		str_for_analysis[i++] = after_space[count++ + 1];
 	str_for_analysis[i] = '\0';
+	// TODO: // if (!rules)
+			 // 	return (0);
 	*buf = ft_strdup(str_for_analysis);
 	free(str_for_analysis);
 	return (1);
