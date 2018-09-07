@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 15:40:25 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:45:37 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,10 @@ char	*get_file_contents(char *filename)
 	char	*data_from_file;
 	char	*line;
 	char	*tmp;
-
-	// ft_putstr(filename);
-	// ft_putstr("\n");
 	
 	open_the_file(&fd, filename, &data_from_file);
-		
-	
 	while (get_next_line(fd, &line))
 	{
-		// ft_putstr(line);
-		// ft_putstr("\n");
-		// ft_putstr("asdfasdfd\n");
-		// if (!line)
-		// 	continue;
-
 		tmp = ft_strjoin(data_from_file, line);
 		check_tmp(&tmp, fd);
 		(data_from_file) ? free(data_from_file) : 0;
@@ -97,25 +86,6 @@ char	*get_file_contents(char *filename)
 	if (close(fd) == -1)
 		return (NULL);
 	return (data_from_file);
-}
-
-void	print_array(t_coord **array)
-{
-	int i = 0;
-	int j = 0;
-
-	while(array[i])
-	{
-		j = 0;
-		while(array[i][j].x != INT_STOP)
-		{
-			ft_putnbr(array[i][j].color);
-			ft_putchar(' ');
-			j++;
-		}
-		ft_putchar('\n');
-		i++;
-	}
 }
 
 int		validation_of_colors(char *after_space, char **buf)
@@ -131,29 +101,18 @@ int		validation_of_colors(char *after_space, char **buf)
 	int z = 0;
 	int z1 = 0;
 	
-	
 	while(after_space[z])
 	{
 		if (after_space[z] == ',')
 			z1++;
-			
 		z++;
 	}
-
-		if (z1 == 0)
-			return (res);
+	if (z1 == 0)
+		return (res);
 
 	while(after_space[count] && after_space[count] != ',')
-	{
 		count++;
-	}
 	
-	ft_putstr("line->");
-	ft_putstr(after_space);
-	ft_putstr("\n");	
-		ft_putstr("count->");
-	ft_putnbr(count);
-	ft_putstr("\n");
 	
 	if (count == 0)
 		return (res);
@@ -170,12 +129,7 @@ int		validation_of_colors(char *after_space, char **buf)
 		i++;
 		count++;
 	}
-	str_for_analysis[i] = '\0';
-
-	ft_putstr("->");	
-	ft_putstr(str_for_analysis);
-	ft_putstr("\n");
-				
+	str_for_analysis[i] = '\0';	
 	*buf = ft_strdup(str_for_analysis);
 	free(str_for_analysis);
 	res = 1;
@@ -184,7 +138,6 @@ int		validation_of_colors(char *after_space, char **buf)
 
 void	parse_colors(t_g *g, char *argv)
 {
-
 	int i = 0;
 	int j = 0;
 	char *file_contents;
