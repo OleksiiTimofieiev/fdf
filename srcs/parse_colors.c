@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 11:52:01 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 11:54:00 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,9 @@ void	parse_colors(t_g *g, char *argv)
 		j = 0;
 		while(g->data[i][j].x != INT_STOP)
 		{
+			// TODO: validation; &after_space[j][0]
+			// TODO: conversion fo the format;
+			
 			g->data[i][j].color = hexadecimalToDecimal(&after_space[j][0]);
 			j++;
 		}
