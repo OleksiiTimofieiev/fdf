@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 17:03:45 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:08:54 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,35 +105,42 @@ int		validation_of_colors(char *after_space, char **buf)
 	return (1);
 }
 
-void	parse_colors(t_g *g, char *argv)
+void	parse_colors_main_cycle(char **after_newline, char **after_space,
+								char **buf, t_g **g)
 {
-	int		i;
-	int		j;
-	char	*file_contents;
-	char	**after_newline;
-	char	**after_space;
-	char	*buf;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	after_space = NULL;
-	file_contents = get_file_contents(argv);
-	after_newline = ft_strsplit(file_contents, '\n');
-	free(file_contents);
 	while (after_newline[i])
 	{
 		after_space = ft_strsplit(after_newline[i], ' ');
 		j = 0;
-		while (g->data[i][j].x != INT_STOP)
+		while ((*g)->data[i][j].x != INT_STOP)
 		{
-			buf = NULL;
-			if (validation_of_colors(after_space[j], &buf))
-				g->data[i][j].color = hex_int_converter(buf);
-			free(buf);
+			*buf = NULL;
+			if (validation_of_colors(after_space[j], buf))
+				(*g)->data[i][j].color = hex_int_converter(*buf);
+			free(*buf);
 			j++;
 		}
 		ft_clean_2d_char(after_space);
 		i++;
 	}
+}
+
+void	parse_colors(t_g *g, char *argv)
+{
+	char	*file_contents;
+	char	**after_newline;
+	char	**after_space;
+	char	*buf;
+
+	after_space = NULL;
+	file_contents = get_file_contents(argv);
+	after_newline = ft_strsplit(file_contents, '\n');
+	free(file_contents);
+	parse_colors_main_cycle(after_newline, after_space, &buf, &g);
 	ft_clean_2d_char(after_newline);
 }
