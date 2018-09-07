@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 14:37:14 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:48:26 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	print_array(t_coord **array)
 	}
 }
 
-int		validation_of_colors(char *after_space)
+int		validation_of_colors(char *after_space, char **buf)
 {
 	int res;
 	int	count;
@@ -144,10 +144,11 @@ int		validation_of_colors(char *after_space)
 		count++;
 	}
 	str_for_analysis[i] = '\0';
+	ft_putstr(str_for_analysis);
+	*buf = ft_strdup(str_for_analysis);
 	free(str_for_analysis);
 	res = 1;
 	return (res);
-
 }
 
 void	parse_colors(t_g *g, char *argv)
@@ -159,29 +160,29 @@ void	parse_colors(t_g *g, char *argv)
 	char **after_newline;
 	char **after_space;
 
-
-
-
-
-
 	file_contents = get_file_contents(argv);
-	ft_putstr("here123\n");
 	after_newline = ft_strsplit(file_contents, '\n');
 	free(file_contents);
+			// ft_putchar('1');
 	while(after_newline[i])
 	{
+			// ft_putchar('2');
+		
 		after_space = ft_strsplit(after_newline[i], ' ');
 
 		j = 0;
 
 		while(g->data[i][j].x != INT_STOP)
 		{
-			// if(validation_of_colors(&after_space[j][0]))
-				g->data[i][j].color = hexadecimalToDecimal("0x008000");
+			// char *buf = NULL;
+			
+			// if(validation_of_colors(&after_space[j][0], &buf))
+			// {
+				g->data[i][j].color = hexadecimalToDecimal("0x008080");
+			// }
+			// free(buf);
 			j++;
 		}
-
-		
 		ft_clean_2d_char(after_space);
 		i++;
 	}
