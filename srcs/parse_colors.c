@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 15:37:09 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:40:25 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int		validation_of_colors(char *after_space, char **buf)
 	}
 
 		if (z1 == 0)
-		return (res);
+			return (res);
 
 	while(after_space[count] && after_space[count] != ',')
 	{
