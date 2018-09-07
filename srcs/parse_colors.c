@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 16:56:10 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:58:17 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		hex_int_converter(char *input)
 	return (dec_val);
 }
 
-void	open_the_file(int *fd, char *filename, char **data_from_file)
+static	void	open_the_file(int *fd, char *filename, char **data_from_file)
 {
 	*data_from_file = NULL;
 	*data_from_file = ft_strnew(0);
