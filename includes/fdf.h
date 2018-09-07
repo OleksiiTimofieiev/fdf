@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:55:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 16:26:07 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:10:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ int					size_double(int **array);
 void				check_line(char **line, int fd);
 void				check_tmp(char **tmp, int fd);
 void				parse_colors(t_g *g, char *argv);
+int					hex_int_converter(char *input);
 
 #endif

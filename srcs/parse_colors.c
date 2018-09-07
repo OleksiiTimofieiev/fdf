@@ -6,39 +6,11 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 17:08:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:09:35 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-int		hex_int_converter(char *input)
-{
-	int base;
-	int len;
-	int dec_val;
-	int i;
-
-	base = 1;
-	len = ft_strlen(input);
-	dec_val = 0;
-	i = len - 1;
-	while (i >= 0)
-	{
-		if (input[i] >= '0' && input[i] <= '9')
-		{
-			dec_val += (input[i] - 48) * base;
-			base = base * 16;
-		}
-		else if (input[i] >= 'A' && input[i] <= 'F')
-		{
-			dec_val += (input[i] - 55) * base;
-			base = base * 16;
-		}
-		i--;
-	}
-	return (dec_val);
-}
 
 void	open_the_file(int *fd, char *filename, char **data_from_file)
 {
