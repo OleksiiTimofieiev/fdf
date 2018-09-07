@@ -6,15 +6,17 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 13:08:46 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:05:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int hexadecimalToDecimal(char *hexVal)
+int hexadecimalToDecimal(char *input)
 {   
-    int len = strlen(hexVal);
+
+	
+    int len = ft_strlen(input);
      
     // Initializing base value to 1, i.e 16^0
     int base = 1;
@@ -27,9 +29,9 @@ int hexadecimalToDecimal(char *hexVal)
         // if character lies in '0'-'9', converting 
         // it to integral 0-9 by subtracting 48 from
         // ASCII value.
-        if (hexVal[i]>='0' && hexVal[i]<='9')
+        if (input[i]>='0' && input[i]<='9')
         {
-            dec_val += (hexVal[i] - 48)*base;
+            dec_val += (input[i] - 48)*base;
                  
             // incrementing base by power
             base = base * 16;
@@ -38,15 +40,14 @@ int hexadecimalToDecimal(char *hexVal)
         // if character lies in 'A'-'F' , converting 
         // it to integral 10 - 15 by subtracting 55 
         // from ASCII value
-        else if (hexVal[i]>='A' && hexVal[i]<='F')
+        else if (input[i]>='A' && input[i]<='F')
         {
-            dec_val += (hexVal[i] - 55)*base;
+            dec_val += (input[i] - 55)*base;
          
             // incrementing base by power
             base = base*16;
         }
     }
-     
     return dec_val;
 }
 
@@ -112,6 +113,7 @@ int		validation_of_colors(char *after_space)
 	int	count;
 	char *str_for_analysis;
 	unsigned long i;
+	str_for_analysis = NULL;
 
 	count = 0;
 	res = 0;
@@ -119,7 +121,8 @@ int		validation_of_colors(char *after_space)
 		count++;
 	if (count == 0)
 		return (0);
-	if(!(str_for_analysis = (char*)malloc(sizeof(char) *  (ft_strlen(after_space) - (count + 1) + 1))))
+		size_t len = ft_strlen(after_space);
+	if(!(str_for_analysis = (char*)malloc(sizeof(char) * (len - (count + 1) + 1))))
 		return (0);
 	i = 0;
 	unsigned long j = ft_strlen(after_space) - (count + 1);
@@ -138,6 +141,7 @@ int		validation_of_colors(char *after_space)
 
 void	parse_colors(t_g *g, char *argv)
 {
+	(void)g;
 	int i = 0;
 	int j = 0;
 	char *file_contents;
@@ -145,22 +149,22 @@ void	parse_colors(t_g *g, char *argv)
 	char **after_space;
 
 	file_contents = get_file_contents(argv);
+	ft_putstr("here123\n");
 	after_newline = ft_strsplit(file_contents, '\n');
 	free(file_contents);
 	while(after_newline[i])
 	{
-	ft_putstr("here\n");
 		after_space = ft_strsplit(after_newline[i], ' ');
 		j = 0;
-		while((g)->data[i][j].x != INT_STOP)
+		while(g->data[i][j].x != INT_STOP)
 		{
 			// TODO: validation; &after_space[j][0]
 			// TODO: conversion fo the format;
-			if (validation_of_colors(&after_space[j][0]))
-			{
-				char * test="0xFFFFFF";
-				(g)->data[i][j].color = hexadecimalToDecimal(/*&after_space[j][0]*/test);
-			}
+			
+			// if (validation_of_colors(&after_space[j][i]))
+			// {
+				g->data[i][j].color = hexadecimalToDecimal("0x008000");
+			// }
 			j++;
 		}
 		ft_clean_2d_char(after_space);
