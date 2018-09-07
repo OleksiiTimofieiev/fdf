@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 11:54:00 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 13:08:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,36 @@ void	print_array(t_coord **array)
 	}
 }
 
+int		validation_of_colors(char *after_space)
+{
+	int res;
+	int	count;
+	char *str_for_analysis;
+	unsigned long i;
+
+	count = 0;
+	res = 0;
+	while(after_space[count] != ',')
+		count++;
+	if (count == 0)
+		return (0);
+	if(!(str_for_analysis = (char*)malloc(sizeof(char) *  (ft_strlen(after_space) - (count + 1) + 1))))
+		return (0);
+	i = 0;
+	unsigned long j = ft_strlen(after_space) - (count + 1);
+	while(i < j)
+	{
+		str_for_analysis[i] = after_space[count+1];
+		i++;
+		count++;
+	}
+	str_for_analysis[i] = '\0';
+	free(str_for_analysis);
+	res = 1;
+	return (res);
+
+}
+
 void	parse_colors(t_g *g, char *argv)
 {
 	int i = 0;
@@ -117,17 +147,20 @@ void	parse_colors(t_g *g, char *argv)
 	file_contents = get_file_contents(argv);
 	after_newline = ft_strsplit(file_contents, '\n');
 	free(file_contents);
-	
 	while(after_newline[i])
 	{
+	ft_putstr("here\n");
 		after_space = ft_strsplit(after_newline[i], ' ');
 		j = 0;
-		while(g->data[i][j].x != INT_STOP)
+		while((g)->data[i][j].x != INT_STOP)
 		{
 			// TODO: validation; &after_space[j][0]
 			// TODO: conversion fo the format;
-			
-			g->data[i][j].color = hexadecimalToDecimal(&after_space[j][0]);
+			if (validation_of_colors(&after_space[j][0]))
+			{
+				char * test="0xFFFFFF";
+				(g)->data[i][j].color = hexadecimalToDecimal(/*&after_space[j][0]*/test);
+			}
 			j++;
 		}
 		ft_clean_2d_char(after_space);
@@ -137,5 +170,5 @@ void	parse_colors(t_g *g, char *argv)
 	
 
 
-	print_array((g)->data);
+	// print_array(g->data);
 }
