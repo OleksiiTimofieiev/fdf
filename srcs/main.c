@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 14:47:41 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:18:47 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int		main(int argc, char **argv)
 	}
 	else
 		ft_putstr("Bad input.\n");
+		// mlx_destroy_window(g.mlx_ptr,g.win_ptr);
 	return (0);
 }

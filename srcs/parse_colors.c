@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 14:48:26 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:18:39 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ char	*get_file_contents(char *filename)
 	char	*line;
 	char	*tmp;
 
-	ft_putstr(filename);
-	ft_putstr("\n");
+	// ft_putstr(filename);
+	// ft_putstr("\n");
 	
 	open_the_file(&fd, filename, &data_from_file);
 		
@@ -128,11 +128,18 @@ int		validation_of_colors(char *after_space, char **buf)
 
 	count = 0;
 	res = 0;
-	while(after_space[count] != ',')
+	// ft_putstr(after_space);
+	while(*after_space && *(after_space) != ',')
+	{
+		after_space++;
 		count++;
+	}
+	
 	if (count == 0)
-		return (0);
-		size_t len = ft_strlen(after_space);
+		return (res);
+		
+	size_t len = ft_strlen(after_space);
+	
 	if(!(str_for_analysis = (char*)malloc(sizeof(char) * (len - (count + 1) + 1))))
 		return (0);
 	i = 0;
@@ -144,7 +151,11 @@ int		validation_of_colors(char *after_space, char **buf)
 		count++;
 	}
 	str_for_analysis[i] = '\0';
-	ft_putstr(str_for_analysis);
+	
+	// ft_putstr("->");
+	// ft_putstr(str_for_analysis);
+	// ft_putstr("\n");
+	
 	*buf = ft_strdup(str_for_analysis);
 	free(str_for_analysis);
 	res = 1;
@@ -158,29 +169,28 @@ void	parse_colors(t_g *g, char *argv)
 	int j = 0;
 	char *file_contents;
 	char **after_newline;
-	char **after_space;
+	char **after_space = NULL;
 
 	file_contents = get_file_contents(argv);
 	after_newline = ft_strsplit(file_contents, '\n');
 	free(file_contents);
-			// ft_putchar('1');
+
 	while(after_newline[i])
 	{
-			// ft_putchar('2');
-		
 		after_space = ft_strsplit(after_newline[i], ' ');
-
 		j = 0;
-
 		while(g->data[i][j].x != INT_STOP)
 		{
-			// char *buf = NULL;
-			
-			// if(validation_of_colors(&after_space[j][0], &buf))
-			// {
-				g->data[i][j].color = hexadecimalToDecimal("0x008080");
-			// }
-			// free(buf);
+			char *buf = NULL;
+			if(validation_of_colors(after_space[j], &buf))
+			{
+				ft_putstr("->");	
+				ft_putstr(buf);
+				ft_putstr("\n");
+				
+				g->data[i][j].color = hexadecimalToDecimal(buf);
+			}
+			free(buf);
 			j++;
 		}
 		ft_clean_2d_char(after_space);
