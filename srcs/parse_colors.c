@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 14:12:05 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:37:14 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,20 @@ char	*get_file_contents(char *filename)
 	char	*line;
 	char	*tmp;
 
+	ft_putstr(filename);
+	ft_putstr("\n");
+	
 	open_the_file(&fd, filename, &data_from_file);
+		
+	
 	while (get_next_line(fd, &line))
 	{
+		// ft_putstr(line);
+		// ft_putstr("\n");
+		// ft_putstr("asdfasdfd\n");
+		// if (!line)
+		// 	continue;
+
 		tmp = ft_strjoin(data_from_file, line);
 		check_tmp(&tmp, fd);
 		(data_from_file) ? free(data_from_file) : 0;
@@ -141,7 +152,7 @@ int		validation_of_colors(char *after_space)
 
 void	parse_colors(t_g *g, char *argv)
 {
-	(void)g;
+
 	int i = 0;
 	int j = 0;
 	char *file_contents;
@@ -150,7 +161,7 @@ void	parse_colors(t_g *g, char *argv)
 
 
 
-	int col = 0;
+
 
 
 	file_contents = get_file_contents(argv);
@@ -162,10 +173,11 @@ void	parse_colors(t_g *g, char *argv)
 		after_space = ft_strsplit(after_newline[i], ' ');
 
 		j = 0;
-		col = 0;
+
 		while(g->data[i][j].x != INT_STOP)
 		{
-			g->data[i][j].color = hexadecimalToDecimal("0x008000");
+			// if(validation_of_colors(&after_space[j][0]))
+				g->data[i][j].color = hexadecimalToDecimal("0x008000");
 			j++;
 		}
 

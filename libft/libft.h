@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/04 18:47:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/04/21 16:41:30 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:31:59 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 10
 
 typedef struct		s_list
 {

@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 14:03:54 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/07 14:23:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		main(int argc, char **argv)
 			exit(0);
 		}
 		(g.parsed_data) ? g.data = fill_the_initial_matrix(g.parsed_data) : exit(0);
+		
 		parse_colors(&g, argv[1]);
 		g.mlx_ptr = mlx_init();
 		g.win_ptr = mlx_new_window(g.mlx_ptr, MONITOR_WIDTH,
