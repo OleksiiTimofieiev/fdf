@@ -6,11 +6,12 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 11:33:36 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/08 11:03:57 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/08 11:12:04 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: - equal quantity of '\n';
+// TODO: equal quantity of '\n';
+// TODO: check leaks;
 
 #include "../includes/fdf.h"
 
