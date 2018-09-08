@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/07 17:19:15 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/08 10:28:50 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ char	*get_file_contents(char *filename)
 	if (close(fd) == -1)
 		return (NULL);
 	return (data_from_file);
+}
+
+int		validate_line_with_color(char *after_space)
+{
+	
 }
 
 int		validation_of_colors(char *after_space, char **buf)
