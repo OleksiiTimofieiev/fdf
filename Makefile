@@ -9,7 +9,8 @@ SRCS		=  	./srcs/main.c \
 				./srcs/draw_line.c \
 				./srcs/rotation.c \
 				./srcs/keyboard_management.c \
-				./srcs/parse_colors.c
+				./srcs/parse_colors.c \
+				./srcs/validate_colors.c
 CFLAGS		= 	-Wall -Wextra -Werror
 OBJECTS 	= 	$(SRCS:.c=.o)
 LIB			= 	libft/libft.a

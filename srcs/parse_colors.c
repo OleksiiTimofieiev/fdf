@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/08 11:04:22 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/08 11:04:53 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,6 @@ char	*get_file_contents(char *filename)
 	if (close(fd) == -1)
 		return (NULL);
 	return (data_from_file);
-}
-
-int		validate_line_with_color(char *str_for_analysis)
-{
-	int i;
-
-	i = 2;
-	if (str_for_analysis[0] != '0')
-		return (0);
-	else if (ft_strlen(str_for_analysis) < 3 || ft_strlen(str_for_analysis) > 8)
-		return (0);
-	else if (str_for_analysis[1] != 'x')
-		return (0);
-	while (str_for_analysis[i])
-	{
-		if (ft_isdigit(str_for_analysis[i]) || str_for_analysis[i] == 65
-			|| str_for_analysis[i] == 66 || str_for_analysis[i] == 67
-			|| str_for_analysis[i] == 68 || str_for_analysis[i] == 69
-			|| str_for_analysis[i] == 70)
-			i++;
-		else
-			return (0);
-	}
-	return (1);
 }
 
 int		validation_of_colors(char *after_space, char **buf)
