@@ -18,3 +18,4 @@ Colors parsing:
 - first element is char '0';
 - second element is char 'x';
 - possible elements after [0 - 9] || [A - F];
+- if color is not valid -> the default color will be settled;

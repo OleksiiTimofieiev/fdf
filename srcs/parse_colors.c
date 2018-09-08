@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:06:23 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/08 10:53:48 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/08 11:04:22 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ int		validate_line_with_color(char *str_for_analysis)
 		return (0);
 	else if (ft_strlen(str_for_analysis) < 3 || ft_strlen(str_for_analysis) > 8)
 		return (0);
-	else if (str_for_analysis[1] != 'x') 
+	else if (str_for_analysis[1] != 'x')
 		return (0);
 	while (str_for_analysis[i])
 	{
-		if (ft_isdigit(str_for_analysis[i]) || str_for_analysis[i] != 'A'
-			|| str_for_analysis[i] != 'B' || str_for_analysis[i] != 'C'
-			|| str_for_analysis[i] != 'D' || str_for_analysis[i] != 'E'
-			|| str_for_analysis[i] != 'F')
+		if (ft_isdigit(str_for_analysis[i]) || str_for_analysis[i] == 65
+			|| str_for_analysis[i] == 66 || str_for_analysis[i] == 67
+			|| str_for_analysis[i] == 68 || str_for_analysis[i] == 69
+			|| str_for_analysis[i] == 70)
 			i++;
 		else
 			return (0);
@@ -95,16 +95,6 @@ int		validation_of_colors(char *after_space, char **buf)
 	while (i < j)
 		str_for_analysis[i++] = after_space[count++ + 1];
 	str_for_analysis[i] = '\0';
-
-	// TODO: // if (!rules)
-			 // 	return (0);
-	// Colors parsing:
-	// - len [3-8];
-	// - first element is char '0';
-	// - second element is char 'x';
-	// - possible elements after [0 - 9] || [A - F];
-
-	// TODO: - equal quantity of '\n';
 	if (!validate_line_with_color(str_for_analysis))
 		return (0);
 	*buf = ft_strdup(str_for_analysis);
