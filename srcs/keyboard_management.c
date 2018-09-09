@@ -6,7 +6,7 @@
 /*   By: otimofie <otimofie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 17:13:13 by otimofie          #+#    #+#             */
-/*   Updated: 2018/09/08 15:27:56 by otimofie         ###   ########.fr       */
+/*   Updated: 2018/09/09 14:35:46 by otimofie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ static	void	change_position(int key, t_g **g)
 		(*g)->correction_x -= MOV_SCALE;
 	else if (key == 124)
 		(*g)->correction_x += MOV_SCALE;
+	else if (key == 2)
+	{
+		(*g)->correction_x = INIT_CORRECTION_X;
+		(*g)->correction_y = INIT_CORRECTION_Y;
+	}
 }
 
 static	void	change_scale(int key, t_g **g)
