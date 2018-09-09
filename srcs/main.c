@@ -20,7 +20,7 @@ int		main(int argc, char **argv)
 	{
 		init_g(&g, &argv[1]);
 		if (argc == 3 && ft_strequ("-i", argv[2]))
-			g.gradient = (ft_strequ("-i", argv[2])) ? 2.0 : -2.0;
+			g.gradient = (ft_strequ("-i", argv[2])) ? 0 : 2.0;
 		else if (argc == 3 && !ft_strequ("-i", argv[2]))
 		{
 			ft_putstr("Bad input.\n");
